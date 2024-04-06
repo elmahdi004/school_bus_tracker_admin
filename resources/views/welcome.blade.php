@@ -5,7 +5,7 @@
     </h4>
     <div class="totals row">
         <div class="item col-3">
-            <div class="card">
+            <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="image">
                         <img src="{{asset('css/images/icons8-route.svg')}}" alt="" srcset="">
@@ -18,7 +18,7 @@
         </div>
         </div>
         <div class="item col-3">
-            <div class="card">
+            <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="image">
                         <img src="{{asset('css/images/icons8-student.svg')}}" alt="" srcset="">
@@ -31,7 +31,7 @@
         </div>
         </div>
         <div class="item col-3">
-            <div class="card">
+            <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="image">
                         <img src="{{asset('css/images/icons8-assistant.svg')}}" alt="" srcset="">
@@ -44,7 +44,7 @@
         </div>
         </div>
         <div class="item col-3">
-            <div class="card">
+            <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="image">
                         <img src="{{asset('css/images/icons8-driver.svg')}}" alt="" srcset="">
