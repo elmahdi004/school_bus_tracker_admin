@@ -20,7 +20,7 @@ class ChildSeeder extends Seeder
                 // Create 3 children for each parent
                 for ($i = 0; $i < 3; $i++) {
                     \App\Models\Child::create([
-                        'parent_id' => $parent->user_id,
+                        'parent_id' => $parent->parent_id,
                     ]);
                 }
             }

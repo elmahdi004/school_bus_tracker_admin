@@ -14,4 +14,5 @@ class child extends Model
     {
         return $this->BelongsTo(Parents::class);
     }
+    
 }

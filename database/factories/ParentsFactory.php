@@ -22,9 +22,8 @@ class ParentsFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->unique()->randomNumber(),
+            'parent_id' => $this->faker->unique()->randomNumber(),
             'username' => $this->faker->userName,
-            'role' => $this->faker->sentence(3),
             'contact_num' => $this->faker->phoneNumber,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'email' => $this->faker->unique()->safeEmail,

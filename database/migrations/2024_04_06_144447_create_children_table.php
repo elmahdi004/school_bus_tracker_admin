@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('children', function (Blueprint $table) {
-            $table->id('user_id');
+            $table->id('child_id');
             $table->string('username')->default('oussama')->nullable(false);
-            $table->string('role', 100)->default('student')->nullable(false); // Set a default role
             $table->string('age')->default('10')->nullable(false);
             $table->string('nivScolaire', 100)->default('cp')->nullable(false);
             $table->unsignedBigInteger('parent_id')->nullable(false); // Make parent_id non-nullable

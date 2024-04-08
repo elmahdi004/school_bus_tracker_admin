@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('drivers', function (Blueprint $table) {
-            $table->id('user_id');
+            $table->id('driver_id');
             $table->string('password');
             $table->string('username',100);
-            $table->string('role',100);
             $table->string('driver_licence_nbr',100);
             // $table->foreignId('bus_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

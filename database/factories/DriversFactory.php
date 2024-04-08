@@ -19,9 +19,8 @@ class DriversFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => fake()->unique()->randomNumber(),
+            'driver_id' => fake()->unique()->randomNumber(),
             'username' => fake()->username(),
-            'role' => fake()->sentence(3),
             'driver_licence_nbr' => fake()->numerify('##########'), // Example format: 1234567890
             // 'bus_id' => fake()->unique()->randomNumber(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 
