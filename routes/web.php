@@ -21,9 +21,11 @@ use Illuminate\Http\Request;
 Route::get('/', function (Request $request) {
     $studentCount = child::count();
     $driversCount = Drivers::count();
+    $parentsCount = Parents::count();
     return view('welcome', [
         'studentCount' => $studentCount,
-        'driversCount'=> $driversCount
+        'driversCount'=> $driversCount,
+        'parentsCount' => $parentsCount
     ]); 
 });
 
