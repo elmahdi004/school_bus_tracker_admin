@@ -16,13 +16,14 @@ class ChildSeeder extends Seeder
 
         // Check if any existing parents exist
         if ($existingParents->count() > 0) {
-            // Prompt the user to choose a parent
-            // For simplicity, let's assume the first parent is chosen
-            $chosenParent = $existingParents->first();
-
-            \App\Models\Child::create([
-                'parent_id' => $chosenParent->id,
-            ]);
+            foreach ($existingParents as $parent) {
+                // Create 3 children for each parent
+                for ($i = 0; $i < 3; $i++) {
+                    \App\Models\Child::create([
+                        'parent_id' => $parent->user_id,
+                    ]);
+                }
+            }
         } else {
             // Log a message or handle the scenario accordingly if no existing parents are found
             \Illuminate\Support\Facades\Log::info('No existing parents found in the database.');
