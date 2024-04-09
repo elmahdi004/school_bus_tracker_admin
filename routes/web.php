@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Spatie\FlareClient\View;
+use App\Models\child;
+use App\Models\Drivers;
+use App\Models\Parents;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +18,17 @@ use Spatie\FlareClient\View;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (Request $request) {
+    $studentCount = child::count();
+    $driversCount = Drivers::count();
+    $parentsCount = Parents::count();
+    return view('welcome', [
+        'studentCount' => $studentCount,
+        'driversCount'=> $driversCount,
+        'parentsCount' => $parentsCount
+    ]); 
 });
+
 
 Route::get('/login',function(){
     return view('auth.index');
