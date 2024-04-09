@@ -17,7 +17,7 @@ class MaintenanceTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>fake()->randomElements(['Engine Maintenance','Brake Maintenance','Oil Maintenance','Transmission Maintenance','Electrical System Maintenance'])
+            'name'=>fake()->randomElement(['Engine Maintenance','Brake Maintenance','Oil Maintenance','Transmission Maintenance','Electrical System Maintenance'])
         ];
     }
 }
