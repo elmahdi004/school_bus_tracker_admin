@@ -3,7 +3,7 @@
     <h4>
         Dashboard
     </h4>
-    <div class="totals row">
+    <div class="totals row row-gap-3">
         <div class="item col-3">
             <div class="card border-0 shadow">
                 <div class="card-body">
