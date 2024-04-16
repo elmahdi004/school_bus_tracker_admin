@@ -28,6 +28,14 @@
                         <input required name="number_of_seats" class="form-control form-control-sm mt-2" type="number"  aria-label=".form-control-sm example">
                     </div>
                     <div class="col-6">
+                        <label for="name">Assistant</label>
+                        <select required class="form-select form-select-sm mt-2" name="assistant" id="">
+                            @foreach ($assistants as $assistant)
+                            <option value="{{$assistant->id}}">{{$assistant->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-6">
                         <label for="name">Status</label>
                         <select required class="form-select form-select-sm mt-2" name="status" id="">
                             <option value="active">active</option>

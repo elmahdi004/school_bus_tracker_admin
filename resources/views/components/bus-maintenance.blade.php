@@ -33,7 +33,10 @@
                                   <a class="{{$idNav == 3 ? 'nav-link active' : 'nav-link' }}" href="#">Driver</a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="{{$idNav == 4 ? 'nav-link active' : 'nav-link' }}" href="#">Route</a>
+                                  <a class="{{$idNav == 4 ? 'nav-link active' : 'nav-link' }}" href="#">Assistant</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="{{$idNav == 5 ? 'nav-link active' : 'nav-link' }}" href="#">Route</a>
                                 </li>
                               </ul>
                         </div>
@@ -66,7 +69,7 @@
                                   </tr>
                                   <tr>
                                     <td>Assistant name</td>
-                                    <td>xxxx</td>
+                                    <td>{{$vehicle['assistant']->name}}</td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -119,6 +122,28 @@
                             </h3>
                         </div>
                         <div class="{{$idNav == 4 ? 'section p-3 mt-3 d-block' : 'section p-3 mt-3 d-none'}}">
+                          <table class="table">
+                            <tbody>
+                              <tr>
+                                <td>Name</td>
+                                <td>{{$vehicle['assistant']->name}}</td>
+                              </tr>
+                              <tr>
+                                <td>Email</td>
+                                <td>{{$vehicle['assistant']->email}}</td>
+                              </tr>
+                              <tr>
+                                <td>Phone number</td>
+                                <td>{{$vehicle['assistant']->phone_number}}</td>
+                              </tr>
+                              <tr>
+                                <td>Availability</td>
+                                <td>{{$vehicle['assistant']->availability}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                      </div>
+                        <div class="{{$idNav == 5 ? 'section p-3 mt-3 d-block' : 'section p-3 mt-3 d-none'}}">
                             <h3>
                               Route
                             </h3>

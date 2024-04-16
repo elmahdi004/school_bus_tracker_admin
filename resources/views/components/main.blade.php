@@ -19,6 +19,62 @@
             <i class="fa-solid fa-chevron-right"></i>
         </button>
     </div>
+    <div class="logout-section">
+            <a href="{{route('logout')}}">Logout</a>
+    </div>
+    <div class="notification shadow">
+        <div class="container">
+            <div class="head">
+                <div class="parte">
+                    <div class="parteOne">
+                        <h4>
+                            Notifications
+                        </h4>
+                        <a href="{{route('vehicles.notificationMarkAllAsRead')}}">
+                            Mark all as read
+                        </a>
+                    </div>
+                    <div class="partTwo">
+                            <Button class="btn-one">
+                                <span>All</span>
+                                <span>{{Auth::guard('administrations')->user()->unreadNotifications->count()}}</span>
+                            </Button>
+                            <Button class="btn-two">Archive</Button>
+                    </div>
+                </div>
+            </div>
+            <div class="body">
+                @if(Auth::guard('administrations')->user()->unreadNotifications->count() == 0)
+                <div class="d-flex justify-content-center mt-5">
+                    <h6>Empty</h6>
+                </div>
+                @else
+                @foreach (Auth::guard('administrations')->user()->unreadNotifications as $notification)    
+                <div class="item">
+                    <a href="{{route('vehicles.detailsWithNotification',['id'=>$notification->data['vehicle_id'],$notification])}}">
+                        <div class="item-section">
+                            <div class="one">
+                                <div class="alert">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                </div>
+                                <div class="details">
+                                    <h3>{{Str::limit($notification->data['vehicle_name'] . '-' . $notification->data['maintenance_type'],30)}}</h3>
+                                    <h6>{{{$notification->created_at->diffForHumans()}}}</h6>
+                                </div>
+                            </div>
+                            <div class="two">
+                                <div class="arrow">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+                @endif
+            </div>
+        </div>
+    </div>
     <div class="main row">
         <div class="dashboard col-3" id="dashboard">
             <div class="logo">
@@ -33,7 +89,7 @@
                 <ul>
                     <li class="{{$id == "1" ? 'active' : ''}}">
                             <div>
-                                <a href="/">
+                                <a href="{{route('dashboard')}}">
                                     <div class="icon">
                                         <i class="fa-solid fa-house"></i>
                                     </div>
@@ -81,7 +137,7 @@
                     </li>
                     <li class="{{$id == "6" ? 'active' : ''}}">
                         <div>
-                            <a href="{{route('assistants')}}">
+                            <a href="{{route('assistants.index')}}">
                                 <i class="fa-solid fa-hands-holding-child"></i>
                                 <h4>Assistants</h4>
                             </a>
@@ -129,6 +185,9 @@
                                 <div class="item">
                                     <a href="#">
                                         <i class="fa-regular fa-bell"></i>
+                                        <div>
+                                            <span>{{Auth::guard('administrations')->user()->unreadNotifications->count()}}</span>
+                                        </div>
                                     </a>
                                 </div>
                                 <div class="item-2">
@@ -141,7 +200,7 @@
 
                             </div>
                             <div class="user">
-                                <p>Hello, <span>El Mahdi</span></p>
+                                <p>Hello, <span>{{Auth::guard('administrations')->user()->name}}</span></p>
                                 <div class="user-image">
                                     <img src="{{asset('css/images/user-image.avif')}}" alt="user image" srcset="">
                                 </div>

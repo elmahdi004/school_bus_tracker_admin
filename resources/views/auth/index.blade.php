@@ -23,7 +23,7 @@
                         <p>Welcome back! login with your data that you entered during registration</p>
                     </div>
                     <div class="form-cred">
-                        <form action="">
+                        <form action="{{route('auth-check')}}" method="POST">
                             @csrf
                             <div class="email">
                                 <img src="{{asset('css/auth/images/icons8-mail.svg')}}" alt="" srcset="">
@@ -41,6 +41,9 @@
                                 </div>
                                 <a href="#">Forgot your Password?</a>
                             </div>
+                            @if($errors->has('error'))
+                                <div class="alert alert-danger" style="font-size: 12px;padding: 10px;text-align: center" id="error">{{ $errors->first('error') }}</div>
+                            @endif
                             <button>LOGIN</button>
                         </form>
                     </div>
