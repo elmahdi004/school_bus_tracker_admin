@@ -22,7 +22,8 @@ class VehicleFactory extends Factory
             'model'=>fake()->randomElement(['Mercedes-Benz Citaro','7900 Electric','Scania Interlink','MAN Lions City','Iveco Urbanway','BYD K9','Solaris Urbino','New Flyer Xcelsior','Nova Bus LFS','Wright StreetDeck','Alexander Dennis Enviro500','Neoplan Tourliner','MCI J4500','Blue Bird Vision','Zhongtong LCK6103']),
             'number of seats'=>fake()->numberBetween(20,40),
             'status'=>fake()->randomElement(['active','inactive']),
-            'position_id'=>fake()->numberBetween(1,30)
+            'position_id'=>fake()->numberBetween(1,30),
+            'assistant_id'=>fake()->numberBetween(1,20)
         ];
     }
 }
