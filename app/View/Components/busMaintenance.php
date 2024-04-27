@@ -11,11 +11,13 @@ class busMaintenance extends Component
     public $vehicle;
     public $busMaintenances;
     public $idNav;
-    public function __construct($vehicle,$busMaintenances,$idNav)
+    public $driver;
+    public function __construct($vehicle,$busMaintenances,$idNav,$driver)
     {
         $this->vehicle = $vehicle;
         $this->busMaintenances = $busMaintenances;
         $this->idNav = $idNav;
+        $this->driver = $driver;
     }
 
     /**

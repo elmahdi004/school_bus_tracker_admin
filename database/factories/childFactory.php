@@ -23,7 +23,7 @@ class ChildFactory extends Factory
     {
         return [
             'child_id' => $this->faker->unique()->randomNumber(),
-            'username' => $this->faker->userName,
+            'username' => $this->faker->name(),
             'age' => $this->faker->numberBetween(6, 18), // Example age between 6 and 18
             'nivScolaire' => $this->faker->word,
             'parent_id' => 1, // Assigning the same parent ID (e.g., 1) to all child records

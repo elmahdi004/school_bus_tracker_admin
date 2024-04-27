@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Assistant;
+use App\Models\Drivers;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use App\Models\Location;
+use Illuminate\Support\Facades\Auth;
 
 class VehicleController extends Controller
 {
@@ -23,7 +26,9 @@ class VehicleController extends Controller
     public function create()
     {
         $vehicles = Vehicle::all();
-        return view('vehicles.add',['vehicles'=>$vehicles]);
+        $assistants = Assistant::all();
+        $drivers = Drivers::all();
+        return view('vehicles.add',['vehicles'=>$vehicles,'assistants'=>$assistants,'drivers'=>$drivers]);
     }
 
     /**
@@ -43,6 +48,8 @@ class VehicleController extends Controller
                 'number of seats'=>$request['number_of_seats'],
                 'status'=>$request->status,
                 'position_id'=>$position->id,
+                'assistant_id'=>$request->assistant,
+                'driver_id'=>$request->driver
             ]
         );
         $vehicles = Vehicle::all();
@@ -65,7 +72,9 @@ class VehicleController extends Controller
     {
         $vehicles = Vehicle::all();
         $vehicle = Vehicle::find($id);
-        return view('vehicles.update',['vehicle'=>$vehicle,'vehicles'=>$vehicles]);
+        $assistants = Assistant::all();
+        $drivers = Drivers::all();
+        return view('vehicles.update',['vehicle'=>$vehicle,'vehicles'=>$vehicles,'assistants'=>$assistants,'drivers'=>$drivers]);
     }
 
     /**
@@ -79,7 +88,9 @@ class VehicleController extends Controller
                 'registration plate'=>$request['registration_plate'],
                 'model'=>$request->model,
                 'number of seats'=>$request['number_of_seats'],
-                'status'=>$request->status
+                'status'=>$request->status,
+                'assistant_id'=>$request->assistant,
+                'driver_id'=>$request->driver
             ]
         );
         $vehicles = Vehicle::all();

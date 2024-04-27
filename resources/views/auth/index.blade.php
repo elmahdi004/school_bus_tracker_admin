@@ -23,16 +23,16 @@
                         <p>Welcome back! login with your data that you entered during registration</p>
                     </div>
                     <div class="form-cred">
-                        <form action="">
+                        <form action="{{route('auth-check')}}"  method="POST">
                             @csrf
                             <div class="email">
                                 <img src="{{asset('css/auth/images/icons8-mail.svg')}}" alt="" srcset="">
-                                <input type="text" name="email" placeholder="Email">
+                                <input  type="text" name="email" placeholder="Email">
                             </div>
                             <div class="password">
                                     <img src="{{asset('css/auth/images/icons8-lock.svg')}}" alt="" srcset="">
                                     <input type="password" name="password" placeholder="Password" id="password">
-                                <img src="{{asset('css/auth/images/icons8-eye.svg')}}" alt="" srcset="" id="eye">
+                                {{-- <img src="{{asset('css/auth/images/icons8-eye.svg')}}" alt="" srcset="" id="eye"> --}}
                             </div>
                             <div class="forget">
                                 <div>
@@ -41,6 +41,9 @@
                                 </div>
                                 <a href="#">Forgot your Password?</a>
                             </div>
+                            @if($errors->has('error'))
+                                <div class="alert alert-danger" style="font-size: 12px;padding: 10px;text-align: center" id="error">{{ $errors->first('error') }}</div>
+                            @endif
                             <button>LOGIN</button>
                         </form>
                     </div>

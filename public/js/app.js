@@ -20,3 +20,9 @@ document.getElementById('open-dash').onclick = ()=>{
     openDashoard.style.display = "none"
 
 }
+document.querySelector('.navbar-actions .item').onclick = ()=>{
+document.querySelector('.notification').classList.toggle('active');
+}
+document.querySelector('.navbar-actions .item-2').onclick = ()=>{
+    document.querySelector('.logout-section').classList.toggle('active');
+    }

@@ -15,7 +15,7 @@ body{
     --text-color:#464255;
 }
 ::-moz-scrollbar {
-    width: 9px;
+    width: 5px;
   }
   /* Track */
   ::-moz-scrollbar-track {
@@ -28,7 +28,7 @@ body{
   /* For WebKit */
   /* Width */
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 6px;
   }
   /* Track */
   ::-webkit-scrollbar-track {
@@ -233,8 +233,7 @@ color: #A4A4A4;
     
 
 }
-.navbar-actions > .item::before{
-    content: "2";
+.navbar-actions > .item div{
     position: absolute;
     width: 20px;
     height: 20px;
@@ -243,9 +242,12 @@ color: #A4A4A4;
     border-radius: 50%;
     top: -5px;
     right: -7px;
-    font-size: 10px;
+    font-size: 8px;
     color: white;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar-actions > .item a{
@@ -327,4 +329,160 @@ color: #A4A4A4;
 .content > .container .body > .totals .card .card-body > .details > p{
     font-size: 11px;
     color: var(--text-color);
+}
+.notification{
+    position: absolute;
+    top: 80px;
+    right: 15px;
+    z-index: 20;
+    background-color: white;
+    border-radius: 10px;
+    min-width: 300px;
+    height: 330.33px;
+    overflow-y: auto;
+    display: none;
+}
+.notification.active{
+    display: block;
+}
+.notification > .container .head{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.27);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+}
+.parte{
+    padding: 20px;
+}
+.container{
+    padding: 0;
+}
+.parteOne{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.parteOne h4{
+    font-size: 20px;
+    color: #282c3a;
+}
+.parteOne a{
+    display: block;
+    color: #282c3a;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.partTwo{
+    padding-top: 6px;
+}
+.partTwo .btn-one,.btn-two{
+    border: none;
+    border-radius: 4px;
+}
+.partTwo .btn-one{
+    background-color: #282c3a;
+    color: white;
+    padding: 2px 8px 3px 8px;
+}
+.partTwo .btn-one span:first-child{
+    font-size: 12px;
+}
+.partTwo .btn-one span:last-child{
+    font-size: 11px;
+    color: #282c3a;
+    background-color: white;
+    padding: 2px;
+    border-radius: 3px;
+    font-weight: 600;
+    margin-left: 3px;
+}
+.partTwo .btn-two{
+    background-color: #ebedf0;
+    color: #282c3a;
+    margin-left: 2px;
+    font-size: 12px;
+    padding: 6px 10px 5px 10px;
+}
+.notification > .body{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+.notification  .item{
+    padding: 10px;
+    transition: 0.4s;
+}
+.notification  .item > a{
+    text-decoration: none;
+}
+.notification  .item .item-section{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.notification  .item  .one{
+    display: flex;
+    align-items: center;
+}
+.notification  .item  .one .alert{
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe5e2;
+    border-radius: 50%;
+    color: #ef463a;
+    margin-top: 3px;
+}
+.notification  .item  .one  h3{
+    font-size: 13px;
+    font-weight: 600;
+    color: #282c3a;
+    margin-left: 10px;
+}
+.notification  .item  .one  h6{
+    font-size: 10px;
+    font-weight: 400;
+    color: #282c3a;
+    margin-left: 10px;
+}
+.notification  .item:hover{
+    background-color: #fffcf5;
+}
+.notification  .item .arrow{
+    margin-right: 5px;
+    font-size: 14px;
+}
+.arrow{
+    color: #282c3a;
+}
+/* .notification  .item .item-section{
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.27);
+} */
+.logout-section{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    position: absolute;
+    top: 80px;
+    right: 350px;
+    z-index: 30;
+    border-radius: 7px;
+}
+.logout-section.active{
+    display: flex;
+}
+.logout-section a{
+    text-decoration: none;
+    color: #282c3a;
 }

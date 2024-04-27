@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('age')->default('10')->nullable(false);
             $table->string('nivScolaire', 100)->default('cp')->nullable(false);
             $table->unsignedBigInteger('parent_id')->nullable(false); // Make parent_id non-nullable
-            $table->foreign('parent_id')->references('user_id')->on('parents')->onDelete('cascade');
+            $table->foreign('parent_id')->references('parent_id')->on('parents')->onDelete('cascade');
             $table->timestamps();
         });
     }

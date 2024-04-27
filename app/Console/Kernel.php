@@ -4,6 +4,11 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Models\BusMaintenance;
+use App\Models\Administration;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\ReminderNotification;
 
 class Kernel extends ConsoleKernel
 {
@@ -12,7 +17,17 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function(){
+            $maintenances = BusMaintenance::all();
+            $admins = Administration::all();
+            foreach($maintenances as $maintenance){
+                    $date = Carbon::parse($maintenance->date);
+                    $diffDays = $date->diffInDays(Carbon::now());
+                    if($diffDays <= 7){
+                        Notification::send($admins,new ReminderNotification($maintenance->vehicle->id,$maintenance->vehicle->name,$maintenance->busMaintenanceType->name));
+                    }
+            }
+        })->everyMinute();
     }
 
     /**

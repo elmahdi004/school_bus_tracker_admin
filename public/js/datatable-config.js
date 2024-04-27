@@ -1,1 +1,4 @@
-let table = new DataTable('#myTable');
+let table = new DataTable('#myTable',{
+    "searching": false ,
+    "aaSorting": []
+});

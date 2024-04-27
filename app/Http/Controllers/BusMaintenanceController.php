@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Administration;
 use App\Models\BusMaintenance;
 use App\Models\MaintenanceType;
 use Illuminate\Http\Request;
 use App\Models\Vehicle;
+use App\Notifications\ReminderNotification;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Carbon;
 
 class BusMaintenanceController extends Controller
@@ -13,12 +16,14 @@ class BusMaintenanceController extends Controller
 
     public function add(Request $request,$vehicle)
     {
-        BusMaintenance::create([
+        $maintenance = BusMaintenance::create([
             'vehicle_id'=>$vehicle,
             'maintenance_type_id'=>intval($request->maintenace_type),
             'date'=>$request->date,
             'description'=>$request->description
         ]);
+        // $admins = Administration::all();
+        // Notification::send($admins,new ReminderNotification($maintenance->vehicle_id,$maintenance->vehicle->name,$maintenance->busMaintenanceType->name));
         $vehicle = Vehicle::find($vehicle);
         $busMaintenancesData = $vehicle->busMaintenances()->with('busMaintenanceType')->get();
         $today = Carbon::now();
@@ -35,6 +40,8 @@ class BusMaintenanceController extends Controller
             [
             'idNav'=>2,
             'vehicle'=>$vehicle,
+            'assistant'=>$vehicle->assistant()->get(),
+            'driver'=>$vehicle->driver()->get(),
             'busMaintenances'=>$busMaintenancesSorted,
         ]);
     }
@@ -62,6 +69,8 @@ class BusMaintenanceController extends Controller
             [
             'idNav'=>2,
             'vehicle'=>$vehicle,
+            'assistant'=>$vehicle->assistant()->get(),
+            'driver'=>$vehicle->driver()->get(),
             'busMaintenances'=>$busMaintenancesSorted,
             'maintenanceType'=>$maintenanceType
         ]);
@@ -88,6 +97,8 @@ class BusMaintenanceController extends Controller
                 [
                 'idNav'=>2,
                 'vehicle'=>$vehicle,
+                'assistant'=>$vehicle->assistant()->get(),
+                'driver'=>$vehicle->driver()->get(),
                 'busMaintenances'=>$busMaintenancesSorted,
                 'maintenanceType'=>$maintenanceType,
                 'busMaintenance'=>$item,
@@ -127,6 +138,8 @@ class BusMaintenanceController extends Controller
                 [
                 'idNav'=>2,
                 'vehicle'=>$vehicle,
+                'assistant'=>$vehicle->assistant()->get(),
+                'driver'=>$vehicle->driver()->get(),
                 'busMaintenances'=>$busMaintenancesSorted,
                 'maintenanceType'=>$maintenanceType,
             ]);
@@ -156,6 +169,8 @@ class BusMaintenanceController extends Controller
                 [
                 'idNav'=>2,
                 'vehicle'=>$vehicle,
+                'assistant'=>$vehicle->assistant()->get(),
+                'driver'=>$vehicle->driver()->get(),
                 'busMaintenances'=>$busMaintenancesSorted,
                 'maintenanceType'=>$maintenanceType,
                 'busMaintenance'=>$item,
@@ -184,6 +199,8 @@ class BusMaintenanceController extends Controller
             return view('vehicles.details',
                 [
                 'vehicle'=>$vehicle,
+                'assistant'=>$vehicle->assistant()->get(),
+                'driver'=>$vehicle->driver()->get(),
                 'busMaintenances'=>$busMaintenancesSorted,
                 'maintenanceType'=>$maintenanceType,
                 'idNav'=>2,

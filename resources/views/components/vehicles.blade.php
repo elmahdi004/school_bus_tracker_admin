@@ -21,7 +21,7 @@
                         </div>
                 </div>
                 <div class="card-body mt-4">
-                    <table class="table table-hover" id="">
+                    <table class="table table-hover" id="myTable">
                         <thead class="">
                           <tr class="">
                             <th scope="col">Bus Name</th>
