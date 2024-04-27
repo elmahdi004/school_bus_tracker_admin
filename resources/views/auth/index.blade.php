@@ -23,16 +23,16 @@
                         <p>Welcome back! login with your data that you entered during registration</p>
                     </div>
                     <div class="form-cred">
-                        <form action="{{route('auth-check')}}" method="POST">
+                        <form action="{{route('auth-check')}}"  method="POST">
                             @csrf
                             <div class="email">
                                 <img src="{{asset('css/auth/images/icons8-mail.svg')}}" alt="" srcset="">
-                                <input type="text" name="email" placeholder="Email">
+                                <input  type="text" name="email" placeholder="Email">
                             </div>
                             <div class="password">
                                     <img src="{{asset('css/auth/images/icons8-lock.svg')}}" alt="" srcset="">
                                     <input type="password" name="password" placeholder="Password" id="password">
-                                <img src="{{asset('css/auth/images/icons8-eye.svg')}}" alt="" srcset="" id="eye">
+                                {{-- <img src="{{asset('css/auth/images/icons8-eye.svg')}}" alt="" srcset="" id="eye"> --}}
                             </div>
                             <div class="forget">
                                 <div>

@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
                     $date = Carbon::parse($maintenance->date);
                     $diffDays = $date->diffInDays(Carbon::now());
                     if($diffDays <= 7){
-                        Notification::send($admins,new ReminderNotification($maintenance->vehicle_id,$maintenance->vehicle->name,$maintenance->busMaintenanceType->name));
+                        Notification::send($admins,new ReminderNotification($maintenance->vehicle->id,$maintenance->vehicle->name,$maintenance->busMaintenanceType->name));
                     }
             }
         })->everyMinute();

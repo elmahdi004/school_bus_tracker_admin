@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManageVehicleController;
 use App\Models\BusMaintenance;
+use App\Models\Vehicle;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,12 @@ use App\Models\BusMaintenance;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/details/{id}',[ManageVehicleController::class,'details']);
+// Route::get('/details',function(){
+    // $vehicles = Vehicle::all();
+    // $data = [];
+    // foreach($vehicles as $vehicle){
+    //         $data[] = $vehicle->with('driver')->get();
+    // }
+    // return $data;
+    // return Vehicle::with('driver')->get();
+// });

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Vehicle;
 
 class Drivers extends Model
 {
@@ -14,11 +14,12 @@ class Drivers extends Model
         'username',
         'role',
         'driver_licence_nbr',
-        'bus_id'
+        'bus_id',
+        'phone_number'
     ];
 
-    //  public function Bus() : HasMany
-    // {
-    //     return $this->belongsTo(Bus::class);
-    // }
+     public function bus()
+    {
+        return $this->hasOne(Vehicle::class,'driver_id');
+    }
 }

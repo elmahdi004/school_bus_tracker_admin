@@ -65,7 +65,7 @@
                                   </tr>
                                   <tr>
                                     <td>Driver name</td>
-                                    <td>xxxx</td>
+                                    <td>{{$driver[0]->username}}</td>
                                   </tr>
                                   <tr>
                                     <td>Assistant name</td>
@@ -118,7 +118,22 @@
                         </div>
                         <div class="{{$idNav == 3 ? 'section p-3 mt-3 d-block' : 'section p-3 mt-3 d-none'}}">
                             <h3>
-                                Driver
+                              <table class="table">
+                                <tbody class="fw-normal">
+                                  <tr>
+                                    <td>Driver name</td>
+                                    <td>{{$driver[0]->username}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Licence id</td>
+                                    <td>{{$driver[0]->driver_licence_nbr}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Phone Number</td>
+                                    <td>{{$driver[0]->phone_number}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
                             </h3>
                         </div>
                         <div class="{{$idNav == 4 ? 'section p-3 mt-3 d-block' : 'section p-3 mt-3 d-none'}}">

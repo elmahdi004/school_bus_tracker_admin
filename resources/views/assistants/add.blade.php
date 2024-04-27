@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-6">
                         <label for="name">Password</label>
-                        <input required name="password" class="form-control form-control-sm mt-2" type="number"  aria-label=".form-control-sm example">
+                        <input required name="password" class="form-control form-control-sm mt-2" type="password"  aria-label=".form-control-sm example">
                     </div>
                     <div class="col-6">
                         <label for="name">availability</label>

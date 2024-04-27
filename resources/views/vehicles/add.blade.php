@@ -28,6 +28,14 @@
                         <input required name="number_of_seats" class="form-control form-control-sm mt-2" type="number"  aria-label=".form-control-sm example">
                     </div>
                     <div class="col-6">
+                        <label for="name">Driver</label>
+                        <select required class="form-select form-select-sm mt-2" name="driver" id="">
+                            @foreach ($drivers as $driver)
+                            <option value="{{$driver->driver_id}}">{{$driver->username}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-6">
                         <label for="name">Assistant</label>
                         <select required class="form-select form-select-sm mt-2" name="assistant" id="">
                             @foreach ($assistants as $assistant)

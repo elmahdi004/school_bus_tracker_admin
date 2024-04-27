@@ -29,7 +29,15 @@
                     <input name="number_of_seats" value="{{$vehicle['number of seats']}}" class="form-control form-control-sm mt-2" type="number"  aria-label=".form-control-sm example">
                 </div>
                 <div class="col-6">
-                  <label for="name">Assistant name</label>
+                  <label for="name">Driver</label>
+                  <select required class="form-select form-select-sm mt-2" name="driver" id="">
+                      @foreach ($drivers as $driver)
+                      <option @selected($driver->driver_id == $vehicle->driver_id) value="{{$driver->driver_id}}">{{$driver->username}}</option>
+                      @endforeach
+                  </select>
+              </div>
+                <div class="col-6">
+                  <label for="name">Assistant</label>
                   <select class="form-select form-select-sm mt-2" name="assistant" id="">
                     @foreach($assistants as $assistant)
                     <option @selected($assistant->id == $vehicle->assistant_id) value="{{$assistant->id}}">{{$assistant->name}}</option>

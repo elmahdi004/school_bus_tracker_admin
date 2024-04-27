@@ -26,33 +26,26 @@ use Illuminate\Http\Request;
 |
 */
 
-<<<<<<< HEAD
-
-Route::get('/', function () {
-=======
-Route::get('/', function (Request $request) {
-    $studentCount = child::count();
-    $driversCount = Drivers::count();
-    $parentsCount = Parents::count();
-    return view('welcome', [
-        'studentCount' => $studentCount,
-        'driversCount'=> $driversCount,
-        'parentsCount' => $parentsCount
-    ]); 
-});
 
 
-Route::get('/login',function(){
->>>>>>> 3541bc24197fc209bfea0d416f3afd49ae3096f7
+
+
+Route::get('/',function(){
     return view('auth.index');
 })->middleware(LoginRedirectMiddleware::class)->name('login');
 Route::post('/login-check',[AuthController::class,'login'])->name('auth-check');
 Route::middleware(AuthCheck::class)->group(function(){
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
-    Route::get('/dashboard', function () {
-        return view('welcome');
+    Route::get('/dashboard', function (Request $request) {
+        $studentCount = child::count();
+        $driversCount = Drivers::count();
+        $parentsCount = Parents::count();
+        return view('welcome', [
+            'studentCount' => $studentCount,
+            'driversCount'=> $driversCount,
+            'parentsCount' => $parentsCount
+        ]); 
     })->name('dashboard');
-    
     Route::get('/students',function(){
         return view('students.index');
     })->name('students');

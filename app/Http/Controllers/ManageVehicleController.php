@@ -34,6 +34,7 @@ class ManageVehicleController extends Controller
             'idNav'=>1,
             'vehicle'=>$vehicle,
             'assistant'=>$vehicle->assistant()->get(),
+            'driver'=>$vehicle->driver()->get(),
             'busMaintenances'=>$busMaintenancesSorted,
         ]);
         // return response([
@@ -65,6 +66,7 @@ class ManageVehicleController extends Controller
             'idNav'=>1,
             'vehicle'=>$vehicle,
             'assistant'=>$vehicle->assistant()->get(),
+            'driver'=>$vehicle->driver()->get(),
             'busMaintenances'=>$busMaintenancesSorted,
         ]);
     }
