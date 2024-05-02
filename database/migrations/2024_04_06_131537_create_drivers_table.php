@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('driver_licence_nbr',100);
             $table->string('password');
             $table->string('status');
+
             $table->timestamps();
         });
     }

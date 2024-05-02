@@ -19,6 +19,7 @@ class Parents extends Model
         'password'
         // Add more attributes as needed
     ];
+
     public function child() : HasMany
     {
         return $this->HasMany(child::class);

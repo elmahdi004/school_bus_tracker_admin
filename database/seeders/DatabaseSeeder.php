@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use App\Models\Administration;
 use App\Models\Assistant;
 use App\Models\BusMaintenance;
@@ -13,6 +12,7 @@ use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 use App\Models\MaintenanceType;
 use SebastianBergmann\CodeCoverage\Driver\Driver;
+
 
 class DatabaseSeeder extends Seeder
 {

@@ -11,6 +11,7 @@ use App\Http\Middleware\AuthCheck;
 use App\Http\Middleware\LoginRedirectMiddleware;
 use App\Models\Assistant;
 use App\Models\Vehicle;
+
 use Illuminate\Support\Facades\Route;
 use Spatie\FlareClient\View;
 use App\Models\child;
@@ -28,6 +29,7 @@ use Illuminate\Http\Request;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 
 
@@ -132,3 +134,4 @@ Route::prefix('/parents')->group(function(){
         return view('reports.index');
     })->name('reports');
 });
+

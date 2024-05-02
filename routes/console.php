@@ -9,6 +9,7 @@ use App\Models\Administration;
 use App\Notifications\ReminderNotification;
 use Illuminate\Support\Facades\Notification;
 
+
 /*
 |--------------------------------------------------------------------------
 | Console Routes
@@ -19,10 +20,8 @@ use Illuminate\Support\Facades\Notification;
 | simple approach to interacting with each command's IO methods.
 |
 */
-
 // Artisan::command('inspire', function () {
 //     $this->comment(Inspiring::quote());
 // })->purpose('Display an inspiring quote');
 // $schedule = app(Schedule::class);
-
 

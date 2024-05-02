@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Drivers;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
 use App\Models\Vehicle;
 
 class DriverSeeder extends Seeder

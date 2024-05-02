@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class child extends Model
 {
     use HasFactory;
+
     protected $primaryKey = 'child_id';
     protected $fillable=[
         'username',

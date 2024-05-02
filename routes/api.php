@@ -6,6 +6,7 @@ use App\Http\Controllers\ManageVehicleController;
 use App\Models\BusMaintenance;
 use App\Models\Vehicle;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,3 +30,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     // return $data;
     // return Vehicle::with('driver')->get();
 // });
+
