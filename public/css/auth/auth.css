@@ -1,0 +1,140 @@
+*{
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #00B074;
+}
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    width: 60%;
+    height: 500px;
+    background-color: white;
+    border-radius: 14px;
+    display: flex;
+    overflow: hidden;
+}
+.form > .login-form{
+    flex: 1;
+    background-color: white;
+}
+.form > .image-form{
+    flex: 1;
+}
+.form > .image-form > img{
+    max-width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+}
+.form > .login-form > div{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+}
+.form > .login-form > div > .details{
+    margin-top: 15px;
+}
+.form > .login-form > div > .details h3{
+    font-size: 24px;
+    color: #464255;
+    font-weight: bold;
+}
+.form > .login-form > div > .details p{
+    color: grey;
+    font-size: 11px;
+}
+.form > .login-form > div > .form-cred{
+    margin-top: 20px;
+}
+.form > .login-form > div > .form-cred form{
+    display: flex;
+    flex-direction: column;
+}
+.form > .login-form > div > .form-cred form .email,.password{
+    background-color: #EEE;
+    padding: 0 12px;
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.form > .login-form > div > .form-cred form .email img,.password img{
+    width: 18px;
+}
+.form > .login-form > div > .form-cred form .email input,.password input{
+    padding: 10px 0;
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+.form > .login-form > div > .form-cred form .email input::placeholder,.password input::placeholder{
+    font-size: 14px;
+    color: #464255;
+}
+.form > .login-form > div > .form-cred form .password img:last-child{
+    cursor: pointer;
+    margin-left: 30px;
+}
+.form > .login-form > div > .form-cred form > .forget{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form > .login-form > div > .form-cred form > .forget > div{
+    display: flex;
+    justify-content: space-between;
+
+}
+.form > .login-form > div > .form-cred form > .forget > div input{
+    width: 14px;
+    accent-color: #00B074;
+}
+@media (max-width:1200px){
+    .form > .login-form > div > .form-cred form .password img:last-child{
+        display: none;
+    }
+}
+.form > .login-form > div > .form-cred form > .forget > div p{
+    font-size: 10px;
+    margin-top: 17px;
+    margin-left: 5px;
+    color: #464255;
+}
+.form > .login-form > div > .form-cred form > .forget a{
+    text-decoration: underline;
+    color: #464255;
+    font-size: 11px;
+}
+.form > .login-form > div > .form-cred form button{
+    padding: 5px 0;
+    color: white;
+    font-size: bold;
+    background-color: #00B074;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+.form > .login-form > div > .form-cred form button:hover{
+    color: #00B074;
+    border: 1px solid #00B074;
+    background-color: white;
+}
+
+

@@ -1,0 +1,52 @@
+.card-head  h5{
+    font-size: 18px;
+    color: #464255;
+}
+.card-head .one > i{
+    color: #00B074;
+}
+.actions > a{
+    text-decoration: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #00B074;
+    color: white;
+    border: 1px solid #00B074;
+    border-radius: 3px;
+}
+.actions > a > h6{
+    font-size: 11px;
+}
+.actions > a > i{
+    font-size: 11px;
+}
+th,td{
+    font-size: 14px;
+}
+tr:hover .dropdown-toggle{
+    background-color: #ececec;
+}
+#status{
+    display: block;
+    /* width: 55px; */
+    text-align: center;
+    padding: 2px;
+    font-weight: 500;
+    border-radius: 3px;
+    font-size: 13px;
+}
+.dropdown-toggle{
+    background-color: white;
+    color: #464255;
+    border: none;
+    width: 40px;
+    /* border: 1px solid #464255;
+    padding: 2px; */
+}
+.dropdown-menu .dropdown-item{
+    font-size: 12px;
+}
+.dt-length label{
+    margin-left: 20px !important;
+}
