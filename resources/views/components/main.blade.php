@@ -145,7 +145,7 @@
                     </li>
                     <li class="{{$id == "7" ? 'active' : ''}}">
                         <div>
-                            <a href="{{route('routes')}}">
+                            <a href="{{route('routes.index')}}">
                                 <i class="fa-solid fa-road"></i>
                                 <h4>Routes</h4>
                             </a>
@@ -215,11 +215,12 @@
     </div>
 </body>
 <script src="{{asset('js/jquery.js')}}"></script>
-<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/controlle.js')}}"></script>
 <script src="{{asset('js/datatable.js')}}"></script>
 <script src="{{asset('js/datatable-config.js')}}"></script>
 <script src="{{asset('js/launch-modal.js')}}"></script>
 <script src="{{asset('js/launch-modal2.js')}}"></script>
 <script src="{{asset('js/vehicles-details.js')}}"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+@yield('scripts')
 </html>

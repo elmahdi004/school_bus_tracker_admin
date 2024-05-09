@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class child extends Model
 {
     use HasFactory;
-
+    protected $guarded = [];
     public function Parents() : BelongsTo
     {
         return $this->BelongsTo(Parents::class);
     }
-    
+    public function waypoint(){
+        return $this->belongsTo(WayPoint::class,'waypoint_id');
+    }
 }

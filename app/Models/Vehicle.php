@@ -22,4 +22,7 @@ class Vehicle extends Model
     public function driver(){
         return $this->belongsTo(Drivers::class,'driver_id','driver_id');
     }
+    public function routes(){
+        return $this->hasMany(Route::class,'vehicle_id');
+    }
 }

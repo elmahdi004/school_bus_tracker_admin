@@ -7,11 +7,13 @@ namespace Database\Seeders;
 use App\Models\Administration;
 use App\Models\Assistant;
 use App\Models\BusMaintenance;
+use App\Models\child;
 use App\Models\Drivers;
 use App\Models\Location;
 use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 use App\Models\MaintenanceType;
+use App\Models\Route;
 use SebastianBergmann\CodeCoverage\Driver\Driver;
 
 class DatabaseSeeder extends Seeder
@@ -26,9 +28,11 @@ class DatabaseSeeder extends Seeder
         // MaintenanceType::factory(5)->create();
         // Assistant::factory(50)->create();
         // Vehicle::factory(50)->create();
-        BusMaintenance::factory(150)->create();
+        // BusMaintenance::factory(150)->create();
         // Administration::factory(10)->create();
         //    Drivers::factory(50)->create();
+        // Route::factory(20)->create();
+        child::factory(100)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

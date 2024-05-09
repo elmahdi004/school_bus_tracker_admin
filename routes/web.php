@@ -4,7 +4,9 @@ use App\Http\Controllers\AssistantController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BusMaintenanceController;
 use App\Http\Controllers\ManageVehicleController;
+use App\Http\Controllers\RouteController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\WayPointController;
 use App\Http\Middleware\AuthCheck;
 use App\Http\Middleware\LoginRedirectMiddleware;
 use App\Models\Vehicle;
@@ -88,9 +90,15 @@ Route::middleware(AuthCheck::class)->group(function(){
         return view('incidents.index');
     })->name('incidents');
     
-    Route::get('/routes',function(){
-        return view('routes.index');
-    })->name('routes');
+    // Routes
+    Route::resource('routes',RouteController::class);
+    Route::get('/routes/delete/{id}',[RouteController::class,'delete'])->name('routes.delete');
+    // end Routes
+
+    // WayPoint Routes
+    Route::get('/routes/{id}/waypoint',[WayPointController::class,'index'])->name('waypoint.index');
+    // End WayPoint Routes
+
     
     Route::get('/reports',function(){
         return view('reports.index');
