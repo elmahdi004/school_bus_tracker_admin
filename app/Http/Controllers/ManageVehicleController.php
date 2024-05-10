@@ -35,6 +35,7 @@ class ManageVehicleController extends Controller
             'vehicle'=>$vehicle,
             'assistant'=>$vehicle->assistant()->get(),
             'driver'=>$vehicle->driver()->get(),
+            'routes'=>$vehicle->routes()->get(),
             'busMaintenances'=>$busMaintenancesSorted,
         ]);
         // return response([
