@@ -34,6 +34,7 @@ use App\Http\Controllers\ParentsController;
 
 
 
+
 Route::get('/',function(){
     return view('auth.index');
 })->middleware(LoginRedirectMiddleware::class)->name('login');
@@ -137,4 +138,79 @@ Route::prefix('/parents')->group(function(){
     Route::get('/show/{id}',[ParentsController::class,"show"])->name('parents.show');
     Route::delete('/{id}', [ParentsController::class, 'destroy'])->name('parents.delete');
 });
+
+
+
+Route::get('/',function(){
+    return view('auth.index');
+})->middleware(LoginRedirectMiddleware::class)->name('login');
+Route::post('/login-check',[AuthController::class,'login'])->name('auth-check');
+Route::middleware(AuthCheck::class)->group(function(){
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+    Route::get('/dashboard', function (Request $request) {
+        $studentCount = child::count();
+        $driversCount = Drivers::count();
+        $parentsCount = Parents::count();
+        return view('welcome', [
+            'studentCount' => $studentCount,
+            'driversCount'=> $driversCount,
+            'parentsCount' => $parentsCount
+        ]); 
+    })->name('dashboard');
+    Route::get('/students',function(){
+        return view('students.index');
+    })->name('students');
+    
+    Route::get('/drivers',function(){
+        return view('drivers.index');
+    })->name('drivers');
+    
+    Route::get('/parents',function(){
+        return view('parents.index');
+    })->name('parents');
+    
+    Route::resource('assistants',AssistantController::class);
+
+    
+    // ------------ Vehicles Routes 
+    
+    Route::resource('vehicles',VehicleController::class);
+    Route::prefix('/vehicles')->group(function(){
+        Route::get('/details/{id}',[ManageVehicleController::class,'details'])->name('vehicles.details');
+        Route::get('/details/{id}/notification/{notification}',[ManageVehicleController::class,'detailsWithNotification'])->name('vehicles.detailsWithNotification');
+        Route::get('/details/notification/allAsRead',[ManageVehicleController::class,'notificationMarkAllAsRead'])->name('vehicles.notificationMarkAllAsRead');
+    });
+    // ------------ Vehicles End Routes 
+    
+    // -------------- maintenance Routes
+    Route::resource('maintenance',BusMaintenanceController::class);
+    Route::prefix('/maintenance')->group(function(){
+        Route::post('/{vehicle}/add',[BusMaintenanceController::class,'add'])->name('maintenance.add');
+        Route::get('/{id}/vehicle/{vehicle_id}/done',[BusMaintenanceController::class,'done'])->name('maintenance.done');
+        Route::delete('/{id}/{vehicle_id}/maintenance-done',[BusMaintenanceController::class,'maintenanceDone'])->name('maintenance.MaintenanceDone');
+        Route::get('/{id}/vehicle/{vehicle_id}/modify',[BusMaintenanceController::class,'modify'])->name('maintenance.modify');
+        Route::post('/{id}/vehicle/{vehicle_id}/maintenance-modify',[BusMaintenanceController::class,'MaintenanceModify'])->name('maintenance.maintenance-modify');
+    });
+    // -------------- maintenance end
+    
+    
+    
+    Route::get('/incidents',function(){
+        return view('incidents.index');
+    })->name('incidents');
+    
+    // Routes
+    Route::resource('routes',RouteController::class);
+    Route::get('/routes/delete/{id}',[RouteController::class,'delete'])->name('routes.delete');
+    // end Routes
+
+    // WayPoint Routes
+    Route::get('/routes/{id}/waypoint',[WayPointController::class,'index'])->name('waypoint.index');
+    // End WayPoint Routes
+
+    
+    Route::get('/reports',function(){
+        return view('reports.index');
+    })->name('reports');
+
 });

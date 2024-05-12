@@ -44,6 +44,7 @@ return [
             'driver' => 'session',
             'provider' => 'administrations', 
         ],
+
         'parents' => [
             'driver' => 'session',
             'provider' => 'parents', 
@@ -52,6 +53,7 @@ return [
             'driver' => 'session',
             'provider' => 'assistants', 
         ],
+
     ],
 
     /*
@@ -80,6 +82,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Administration::class,
         ],
+
         'parents' => [
             'driver' => 'eloquent',
             'model' => App\Models\Parents::class,
@@ -88,6 +91,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Assistant::class,
         ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

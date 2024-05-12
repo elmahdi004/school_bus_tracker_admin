@@ -23,7 +23,9 @@ use App\Models\Vehicle;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 // MapBox API 
+
 Route::apiResource('routes',RouteController::class);
 Route::post('routes/store',[RouteController::class,'store']);
 Route::apiResource('waypoints',WayPointController::class);
@@ -38,11 +40,13 @@ Route::post('/waypoint/students/add',[WayPointController::class,'addStudentToWay
 
 
 
+
 // ------------------ MOBILE API------------------------
 Route::post('/login',[AuthController::class,'loginMobile']);
 Route::get('/logout/parent',[AuthController::class,'logoutAsParent']);
 Route::get('/logout/assistant',[AuthController::class,'logoutAsAssistant']);
 
 Route::get('/vehicle/{id}/get-routes',[RouteController::class,'getRoutes']);
+
 
 
