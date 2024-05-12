@@ -31,17 +31,20 @@ class DriversController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'username' => 'required',
-            'driver_licence_nbr' => 'required|unique:drivers',
-            'password' => 'required|min:6',
+        // $validatedData = $request->validate([
+        //     'username' => 'required',
+        //     'driver_licence_nbr' => 'required',
+        // ]);
+
+
+        Drivers::create([
+            'username'=>$request->username,
+            'driver_licence_nbr'=>$request->driving_licence_number,
+            'phone_number'=>$request->phone_number,
+            'address'=>$request->address,
+            'email'=>$request->email,
         ]);
 
-        $validatedData['password'] = bcrypt($validatedData['password']);
-
-        $drivers = Drivers::create($validatedData);
-
-   
         return redirect()->route('drivers.index')->with('success', 'Driver created successfully.');
     }
 

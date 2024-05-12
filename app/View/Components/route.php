@@ -6,13 +6,15 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class parents extends Component
-{ 
-    public $parents;
-
-    public function __construct($parents)
+class route extends Component
+{
+    /**
+     * Create a new component instance.
+     */
+    public $routes;
+    public function __construct($routes)
     {
-        $this->parents = $parents;
+        $this->routes = $routes;
     }
 
     /**
@@ -20,6 +22,6 @@ class parents extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.parents');
+        return view('components.route');
     }
 }

@@ -5,22 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-<<<<<<< HEAD
     <link rel="stylesheet" href="{{asset('css/datatable.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="shortcut icon" href={{asset('css/icons/raQib-no-bg.png')}}>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
 @yield('style')
-<title>raQib-admin-system</title>
-=======
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
 <title>school bus tracker system</title>
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
 </head>
 <body>
     <div class="open-dash" id="open-dash">
@@ -28,7 +19,6 @@
             <i class="fa-solid fa-chevron-right"></i>
         </button>
     </div>
-<<<<<<< HEAD
     <div class="logout-section">
             <a href="{{route('logout')}}">Logout</a>
     </div>
@@ -85,17 +75,11 @@
             </div>
         </div>
     </div>
-=======
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
     <div class="main row">
         <div class="dashboard col-3" id="dashboard">
             <div class="logo">
                 <div>
-<<<<<<< HEAD
-                    <img src="{{asset('css/images/raQib-logo.png')}}" alt="user image" srcset="" style="width: 95%; margin-left: 10px;">
-=======
                     LOGO
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                 </div>
                 <button id="btn-menu">
                     <i class="fa-solid fa-bars"></i>
@@ -105,11 +89,7 @@
                 <ul>
                     <li class="{{$id == "1" ? 'active' : ''}}">
                             <div>
-<<<<<<< HEAD
                                 <a href="{{route('dashboard')}}">
-=======
-                                <a href="/">
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                                     <div class="icon">
                                         <i class="fa-solid fa-house"></i>
                                     </div>
@@ -119,11 +99,7 @@
                     </li>
                     <li class="{{$id == "2" ? 'active' : ''}}">
                         <div>
-<<<<<<< HEAD
                             <a href="/vehicles">
-=======
-                            <a href="{{route('vehicles')}}">
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                                 <div class="icon">
                                     <i class="fa-solid fa-bus"></i>
                                 </div>
@@ -143,11 +119,7 @@
                     </li>
                     <li class="{{$id == "4" ? 'active' : ''}}">
                         <div>
-<<<<<<< HEAD
                             <a href="{{route('drivers.index')}}">
-=======
-                            <a href="{{route('drivers')}}">
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                                 <div class="icon">
                                     <i class="fa-solid fa-users"></i>
                                 </div>
@@ -157,11 +129,7 @@
                     </li>
                     <li class="{{$id == "5" ? 'active' : ''}}">
                         <div>
-<<<<<<< HEAD
                             <a href="{{route('parents.index')}}">
-=======
-                            <a href="{{route('parents')}}">
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                                 <i class="fa-solid fa-person-breastfeeding"></i>
                                 <h4>Parents</h4>
                             </a>
@@ -169,11 +137,7 @@
                     </li>
                     <li class="{{$id == "6" ? 'active' : ''}}">
                         <div>
-<<<<<<< HEAD
                             <a href="{{route('assistants.index')}}">
-=======
-                            <a href="{{route('assistants')}}">
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                                 <i class="fa-solid fa-hands-holding-child"></i>
                                 <h4>Assistants</h4>
                             </a>
@@ -181,7 +145,7 @@
                     </li>
                     <li class="{{$id == "7" ? 'active' : ''}}">
                         <div>
-                            <a href="{{route('routes')}}">
+                            <a href="{{route('routes.index')}}">
                                 <i class="fa-solid fa-road"></i>
                                 <h4>Routes</h4>
                             </a>
@@ -221,12 +185,9 @@
                                 <div class="item">
                                     <a href="#">
                                         <i class="fa-regular fa-bell"></i>
-<<<<<<< HEAD
                                         <div>
                                             <span>{{Auth::guard('administrations')->user()->unreadNotifications->count()}}</span>
                                         </div>
-=======
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                                     </a>
                                 </div>
                                 <div class="item-2">
@@ -239,11 +200,7 @@
 
                             </div>
                             <div class="user">
-<<<<<<< HEAD
                                 <p>Hello, <span>{{Auth::guard('administrations')->user()->name}}</span></p>
-=======
-                                <p>Hello, <span>El Mahdi</span></p>
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                                 <div class="user-image">
                                     <img src="{{asset('css/images/user-image.avif')}}" alt="user image" srcset="">
                                 </div>
@@ -257,41 +214,13 @@
         </div>
     </div>
 </body>
-<<<<<<< HEAD
-
-
-{{-- Script to Hide Sidebar by Default and Toggle Visibility on Click --}}
-{{-- <script>  
-    document.addEventListener('DOMContentLoaded', function() {
-        const openDash = document.getElementById('open-dash');
-        const btnMenu = document.getElementById('btn-menu');
-        const dashboard = document.getElementById('dashboard');
-        const content = document.getElementById('content');
-
-        // Initially hide the sidebar
-        dashboard.classList.add('hide');
-
-        // Trigger a click event on the toggle button
-        btnMenu.click();
-
-        openDash.addEventListener('click', function() {
-            // Toggle the width of the sidebar and the left margin of the main content
-            dashboard.classList.toggle('hide');
-            content.classList.toggle('expand');
-        });
-    });
-</script> --}}
-
-
 <script src="{{asset('js/jquery.js')}}"></script>
-<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/controlle.js')}}"></script>
 <script src="{{asset('js/datatable.js')}}"></script>
 <script src="{{asset('js/datatable-config.js')}}"></script>
 <script src="{{asset('js/launch-modal.js')}}"></script>
 <script src="{{asset('js/launch-modal2.js')}}"></script>
 <script src="{{asset('js/vehicles-details.js')}}"></script>
-=======
-<script src="{{asset('js/app.js')}}"></script>
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+@yield('scripts')
 </html>

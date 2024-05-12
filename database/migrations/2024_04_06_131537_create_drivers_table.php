@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id('driver_id');
             $table->string('username',100);
             $table->string('driver_licence_nbr',100);
-            $table->string('password');
-            $table->string('status');
-
+            // $table->foreignId('bus_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

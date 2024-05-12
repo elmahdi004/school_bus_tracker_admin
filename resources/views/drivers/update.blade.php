@@ -29,13 +29,13 @@
                     <input name="phone_number" value="{{$driver->phone_number}}" class="form-control form-control-sm mt-2" type="number"  aria-label=".form-control-sm example">
                 </div>
                 <div class="col-6">
-                  <label for="status">Satuts</label>
-                  <input required name="status" class="form-control form-control-sm mt-2" type="text"  aria-label=".form-control-sm example">
+                  <label for="password">Email</label>
+                  <input required name="email" class="form-control form-control-sm mt-2" type="text"  aria-label=".form-control-sm example" minlength="8">
               </div>
-                <div class="col-6">
-                  <label for="password">Password</label>
-                  <input name="password" value="{{$driver->password}}" class="form-control form-control-sm mt-2" type="password"  aria-label=".form-control-sm example" minlength="8">
-              </div>
+              <div class="col-6">
+                <label for="password">Address</label>
+                <input required name="address" class="form-control form-control-sm mt-2" type="text"  aria-label=".form-control-sm example" minlength="8">
+            </div>
                 </div>
             </div>
         </div>

@@ -42,6 +42,7 @@ class BusMaintenanceController extends Controller
             'vehicle'=>$vehicle,
             'assistant'=>$vehicle->assistant()->get(),
             'driver'=>$vehicle->driver()->get(),
+            'routes'=>$vehicle->routes()->get(),
             'busMaintenances'=>$busMaintenancesSorted,
         ]);
     }
@@ -71,6 +72,7 @@ class BusMaintenanceController extends Controller
             'vehicle'=>$vehicle,
             'assistant'=>$vehicle->assistant()->get(),
             'driver'=>$vehicle->driver()->get(),
+            'routes'=>$vehicle->routes()->get(),
             'busMaintenances'=>$busMaintenancesSorted,
             'maintenanceType'=>$maintenanceType
         ]);
@@ -99,6 +101,7 @@ class BusMaintenanceController extends Controller
                 'vehicle'=>$vehicle,
                 'assistant'=>$vehicle->assistant()->get(),
                 'driver'=>$vehicle->driver()->get(),
+                'routes'=>$vehicle->routes()->get(),
                 'busMaintenances'=>$busMaintenancesSorted,
                 'maintenanceType'=>$maintenanceType,
                 'busMaintenance'=>$item,
@@ -140,6 +143,7 @@ class BusMaintenanceController extends Controller
                 'vehicle'=>$vehicle,
                 'assistant'=>$vehicle->assistant()->get(),
                 'driver'=>$vehicle->driver()->get(),
+                'routes'=>$vehicle->routes()->get(),
                 'busMaintenances'=>$busMaintenancesSorted,
                 'maintenanceType'=>$maintenanceType,
             ]);
@@ -171,6 +175,7 @@ class BusMaintenanceController extends Controller
                 'vehicle'=>$vehicle,
                 'assistant'=>$vehicle->assistant()->get(),
                 'driver'=>$vehicle->driver()->get(),
+                'routes'=>$vehicle->routes()->get(),
                 'busMaintenances'=>$busMaintenancesSorted,
                 'maintenanceType'=>$maintenanceType,
                 'busMaintenance'=>$item,
@@ -201,6 +206,7 @@ class BusMaintenanceController extends Controller
                 'vehicle'=>$vehicle,
                 'assistant'=>$vehicle->assistant()->get(),
                 'driver'=>$vehicle->driver()->get(),
+                'routes'=>$vehicle->routes()->get(),
                 'busMaintenances'=>$busMaintenancesSorted,
                 'maintenanceType'=>$maintenanceType,
                 'idNav'=>2,

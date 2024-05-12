@@ -5,7 +5,7 @@
     @endsection
     @section('content')
         <h4>
-            Driver
+            Drivers
         </h4>
         <div class="card py-4 px-4 my-4">
             <div class="card-head">
@@ -21,15 +21,14 @@
                         </a>
                         </div>
                 </div>
-                <div class="card-body mt-4">
-                    <table class="table table-hover" id="">
+                <div class="card-body mt-4 overflow-auto">
+                    <table class="table table-hover" id="myTable">
                         <thead class="">
                           <tr class="">
-                            <th scope="col">username</th>
-                            <th scope="col">driver licence nbr</th>
-                            <th scope="col">driver's bus's id</th>
-                            <th scope="col">Password</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">name</th>
+                            <th scope="col">licence id</th>
+                            <th scope="col">address</th>
+                            <th scope="col">email</th>
                             <th scope="col">Actions</th>
                           </tr>
                         </thead>
@@ -38,10 +37,8 @@
                           <tr>
                             <td>{{ $driver->username }}</td>
                             <td>{{ $driver->driver_licence_nbr }}</td>
-                            <td>{{ $driver->bus_id }}</td>
-                            <td>{{ $driver->password }}</td>
-                            <td ><span id="status" class="{{$driver->status == 'active' ? 'text-success bg-success-subtle' : 'text-warning bg-warning-subtle'}}">{{ $driver->status }}</span></td>
-                            <td>
+                            <th class="fw-normal">{{$driver->address}}</th>
+                            <th class="fw-normal">{{$driver->email}}</th>
                             <td>
                               <div class="dropdown">
                                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

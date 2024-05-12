@@ -1,6 +1,11 @@
 <x-main id="2">
     @section('style')
     <link rel="stylesheet" href="{{asset('css/vehicles/details.css')}}">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet" />
+    <style>
+
+    </style>
     @endsection
     @section('content')
     <h4 class="title">
@@ -36,7 +41,7 @@
                                   <a class="{{$idNav == 4 ? 'nav-link active' : 'nav-link' }}" href="#">Assistant</a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="{{$idNav == 5 ? 'nav-link active' : 'nav-link' }}" href="#">Route</a>
+                                  <a class="{{$idNav == 5 ? 'nav-link active' : 'nav-link' }}" href="#">Routes</a>
                                 </li>
                               </ul>
                         </div>
@@ -159,14 +164,39 @@
                           </table>
                       </div>
                         <div class="{{$idNav == 5 ? 'section p-3 mt-3 d-block' : 'section p-3 mt-3 d-none'}}">
-                            <h3>
-                              Route
-                            </h3>
+                          @if ($routes->count())
+                          @foreach ($routes as $route)
+                          <div class="card shadow-sm my-3 p-3">
+                            <div class="card-head d-flex justify-content-between">
+                              <div class="id">
+                                {{$loop->index + 1}}
+                              </div>
+                              <div class="name">
+                                {{$route->name}}
+                              </div>
+                              <div class="open-close">
+                                <button class="toggler bg-transparent border-0" route-id="{{$route->id}}"><i class="fa-solid fa-chevron-down"></i></button>
+                              </div>
+                            </div>
+                            <div class="card-bod pt-4 d-none">
+                              <div id="map"  style="width: 100%;height:200px"></div>
+                            </div>
+                          </div>
+                      @endforeach
+                          @else
+                              <div class="text-center">
+                                <h6>                                        Not Founded                                </h6>
+                              </div>
+                          @endif
+
                         </div>
                     </div>
             </div>
         </div>
     </div>
     @yield('modal')
+    @endsection
+    @section('scripts')
+    <script src="{{asset('js/route-card.js')}}"></script>
     @endsection
 </x-main>

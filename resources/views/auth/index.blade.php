@@ -23,28 +23,16 @@
                         <p>Welcome back! login with your data that you entered during registration</p>
                     </div>
                     <div class="form-cred">
-<<<<<<< HEAD
                         <form action="{{route('auth-check')}}"  method="POST">
                             @csrf
                             <div class="email">
                                 <img src="{{asset('css/auth/images/icons8-mail.svg')}}" alt="" srcset="">
                                 <input  type="text" name="email" placeholder="Email">
-=======
-                        <form action="">
-                            @csrf
-                            <div class="email">
-                                <img src="{{asset('css/auth/images/icons8-mail.svg')}}" alt="" srcset="">
-                                <input type="text" name="email" placeholder="Email">
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                             </div>
                             <div class="password">
                                     <img src="{{asset('css/auth/images/icons8-lock.svg')}}" alt="" srcset="">
                                     <input type="password" name="password" placeholder="Password" id="password">
-<<<<<<< HEAD
                                 {{-- <img src="{{asset('css/auth/images/icons8-eye.svg')}}" alt="" srcset="" id="eye"> --}}
-=======
-                                <img src="{{asset('css/auth/images/icons8-eye.svg')}}" alt="" srcset="" id="eye">
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                             </div>
                             <div class="forget">
                                 <div>
@@ -53,12 +41,9 @@
                                 </div>
                                 <a href="#">Forgot your Password?</a>
                             </div>
-<<<<<<< HEAD
                             @if($errors->has('error'))
                                 <div class="alert alert-danger" style="font-size: 12px;padding: 10px;text-align: center" id="error">{{ $errors->first('error') }}</div>
                             @endif
-=======
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                             <button>LOGIN</button>
                         </form>
                     </div>

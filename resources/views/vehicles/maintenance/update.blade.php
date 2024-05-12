@@ -1,4 +1,4 @@
-<x-bus-maintenance  :busMaintenances="$busMaintenances" :vehicle="$vehicle" :idNav="$idNav" :driver="$driver">
+<x-bus-maintenance  :busMaintenances="$busMaintenances" :vehicle="$vehicle" :idNav="$idNav" :driver="$driver" :routes="$routes">
     @section('modal')
     <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog  modal-lg">

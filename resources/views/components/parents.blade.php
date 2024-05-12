@@ -21,15 +21,15 @@
                         </a>
                         </div>
                 </div>
-                <div class="card-body mt-4">
-                    <table class="table table-hover" id="">
+                <div class="card-body mt-4 overflow-auto">
+                    <table class="table table-hover" id="myTable" style="width:100vw mx-5">
                         <thead class="">
                           <tr class="">
                             <th scope="col">username</th>
                             <th scope="col">Email</th>
                             <th scope="col">Contact Number</th>
                             <th scope="col">Address</th>
-                            <th scope="col">Password</th>
+                            {{-- <th scope="col">Password</th> --}}
                             <th scope="col">Actions</th>
                           </tr>
                         </thead>
@@ -40,7 +40,7 @@
                             <td>{{ $parent->email }}</td>
                             <td>{{ $parent->contact_num }}</td>
                             <td>{{ $parent->address }}</td>
-                            <td>{{ $parent->password }}</td>
+                            {{-- <td>{{ $parent->password }}</td> --}}
                             <td>
                               <div class="dropdown">
                                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

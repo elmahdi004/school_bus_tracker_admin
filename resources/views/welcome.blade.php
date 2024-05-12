@@ -3,11 +3,7 @@
     <h4>
         Dashboard
     </h4>
-<<<<<<< HEAD
     <div class="totals row row-gap-3">
-=======
-    <div class="totals row">
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
         <div class="item col-3">
             <div class="card border-0 shadow">
                 <div class="card-body">
@@ -28,9 +24,7 @@
                         <img src="{{asset('css/images/icons8-student.svg')}}" alt="" srcset="">
                     </div>
                     <div class="details">
-                        @isset($studentCount)
-                            <h4>{{ $studentCount }}</h4>
-                        @endisset
+                            <h4>{{ $studentCount ?? "0" }}</h4>
                         <p>Total Students</p>
                     </div>
                 </div>
@@ -43,13 +37,7 @@
                         <img src="{{asset('css/images/icons8-assistant.svg')}}" alt="" srcset="">
                     </div>
                     <div class="details">
-<<<<<<< HEAD
-                    @isset($assistanceCount)
-                        <h4>{{ $assistanceCount }}</h4>
-                    @endisset
-=======
                         <h4>200</h4>
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
                         <p>Total Assistants</p>
                     </div>
                 </div>
@@ -62,40 +50,25 @@
                         <img src="{{asset('css/images/icons8-driver.svg')}}" alt="" srcset="">
                     </div>
                     <div class="details">
-<<<<<<< HEAD
-                    @isset($driversCount)
-=======
-                        @isset($driversCount)
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
-                        <h4>{{ $driversCount }}</h4>
-                    @endisset
+                        <h4>{{ $driversCount ?? "0"}}</h4>
                         <p>Total Drivers</p>
                     </div>
                 </div>
         </div>
         </div>
-
- <div class="gap" style="height: 20px;"></div>
-
         <div class="item col-3">
-            <div class="card border-0 shadow">
+            {{-- <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="image">
                         <img src="{{asset('css/images/icons8-parent.svg')}}" alt="" srcset="">
                     </div>
                     <div class="details">
-<<<<<<< HEAD
-                    @isset($parentsCount)
-=======
-                        @isset($parentsCount)
->>>>>>> becd55fda6263ea4e9f703d49866496a3b45c140
-                        <h4>{{ $parentsCount }}</h4>
-                    @endisset
+                        <h4>{{ $parentsCount ?? "0"}}</h4>
                         <p>Total Parents</p>
                     </div>
                 </div>
         </div>
-        </div>
+        </div> --}}
  
     </div>
     @endsection

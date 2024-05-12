@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email',100);
             $table->string('address',100);
             $table->string('password',100);
+            // $table->foreignId('bus_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

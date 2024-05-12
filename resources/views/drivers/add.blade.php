@@ -17,23 +17,19 @@
                     </div>
                     <div class="col-6">
                         <label for="driving_licence_number">Driving Licence Number</label>
-                        <input required name="driving_licence_number" class="form-control form-control-sm mt-2" type="number"  aria-label=".form-control-sm example">
-                    </div>
-                    <div class="col-6">
-                        <label for="bus_id">driver's bus's id</label>
-                        <input required name="bus_id"  class="form-control form-control-sm mt-2" type="text"  aria-label=".form-control-sm example">
+                        <input required name="driving_licence_number" class="form-control form-control-sm mt-2" type="text"  aria-label=".form-control-sm example">
                     </div>
                     <div class="col-6">
                       <label for="phone_number">Phone Number</label>
                       <input required name="phone_number" class="form-control form-control-sm mt-2" type="number"  aria-label=".form-control-sm example">
                   </div>
                   <div class="col-6">
-                    <label for="status">Satuts</label>
-                    <input required name="status" class="form-control form-control-sm mt-2" type="text"  aria-label=".form-control-sm example">
+                    <label for="password">Address</label>
+                    <input required name="address" class="form-control form-control-sm mt-2" type="text"  aria-label=".form-control-sm example" minlength="8">
                 </div>
                     <div class="col-6">
-                        <label for="password">Password</label>
-                        <input required name="password" class="form-control form-control-sm mt-2" type="password"  aria-label=".form-control-sm example" minlength="8">
+                        <label for="password">Email</label>
+                        <input required name="email" class="form-control form-control-sm mt-2" type="text"  aria-label=".form-control-sm example" minlength="8">
                     </div>
                 </div>
             </div>

@@ -18,13 +18,13 @@ class DriversFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
             'username' => fake()->name(),
-            'driver_licence_nbr' => fake()->numerify('##########'), // Example format: 1234567890
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 
+            'driver_licence_nbr' => fake()->numerify('#######'), // Example format: 1234567890
             'phone_number' => fake()->phoneNumber(),
-            'status'=>fake()->randomElement(['active','inactive'])
-
+            'address' => fake()->address(),
+            'email' =>fake()->email()
         ];
     }
 }

@@ -3,21 +3,21 @@
 use App\Http\Controllers\AssistantController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BusMaintenanceController;
-use App\Http\Controllers\DriversController;
-use App\Http\Controllers\ParentsController;
 use App\Http\Controllers\ManageVehicleController;
+use App\Http\Controllers\RouteController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\WayPointController;
 use App\Http\Middleware\AuthCheck;
 use App\Http\Middleware\LoginRedirectMiddleware;
-use App\Models\Assistant;
 use App\Models\Vehicle;
-
 use Illuminate\Support\Facades\Route;
 use Spatie\FlareClient\View;
 use App\Models\child;
 use App\Models\Drivers;
 use App\Models\Parents;
 use Illuminate\Http\Request;
+use App\Http\Controllers\DriversController;
+use App\Http\Controllers\ParentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +34,6 @@ use Illuminate\Http\Request;
 
 
 
-
 Route::get('/',function(){
     return view('auth.index');
 })->middleware(LoginRedirectMiddleware::class)->name('login');
@@ -45,56 +44,23 @@ Route::middleware(AuthCheck::class)->group(function(){
         $studentCount = child::count();
         $driversCount = Drivers::count();
         $parentsCount = Parents::count();
-        $assistanceCount = Assistant::count();
         return view('welcome', [
             'studentCount' => $studentCount,
             'driversCount'=> $driversCount,
-            'parentsCount' => $parentsCount,
-            'assistanceCount' => $assistanceCount
+            'parentsCount' => $parentsCount
         ]); 
     })->name('dashboard');
     Route::get('/students',function(){
         return view('students.index');
     })->name('students');
     
-
-  // ------------ Driver Routes 
-
-Route::get('/drivers',[DriversController::class,"index"])->name('drivers.index');
-
-Route::get('/drivers/create', [DriversController::class, 'create'])->name('drivers.create');
-Route::post('/drivers', [DriversController::class, 'store'])->name('drivers.store');
-
-Route::prefix('/drivers')->group(function(){
-    Route::get('/edit/{id}',[DriversController::class,"edit"])->name('drivers.edit');
-    Route::put('/update/{id}', [DriversController::class, "update"])->name('drivers.update');
-});
-
-Route::prefix('/drivers')->group(function(){
-    Route::get('/show/{id}',[DriversController::class,"show"])->name('drivers.show');
-});
-
-Route::delete('/drivers/{id}', [DriversController::class, 'destroy'])->name('driver.delete');
-
-
-
-// ------------ Parents Routes 
-Route::get('/parents',[ParentsController::class,"index"])->name('parents.index');
-
-Route::get('/parents/create', [ParentsController::class, 'create'])->name('parents.create');
-Route::post('/parents', [ParentsController::class, 'store'])->name('parents.store');
-
-Route::prefix('/parents')->group(function(){
-    Route::get('/edit/{id}',[ParentsController::class,"edit"])->name('parents.edit');
-    Route::put('/update/{id}', [ParentsController::class, "update"])->name('parents.update');
-    Route::get('/show/{id}',[ParentsController::class,"show"])->name('parents.show');
-    Route::delete('/{id}', [ParentsController::class, 'destroy'])->name('parents.delete');
-});
-
-
-
-
-
+    // Route::get('/drivers',function(){
+    //     return view('drivers.index');
+    // })->name('drivers');
+    
+    // Route::get('/parents',function(){
+    //     return view('parents.index');
+    // })->name('parents');
     
     Route::resource('assistants',AssistantController::class);
 
@@ -126,12 +92,49 @@ Route::prefix('/parents')->group(function(){
         return view('incidents.index');
     })->name('incidents');
     
-    Route::get('/routes',function(){
-        return view('routes.index');
-    })->name('routes');
+    // Routes
+    Route::resource('routes',RouteController::class);
+    Route::get('/routes/delete/{id}',[RouteController::class,'delete'])->name('routes.delete');
+    // end Routes
+
+    // WayPoint Routes
+    Route::get('/routes/{id}/waypoint',[WayPointController::class,'index'])->name('waypoint.index');
+    // End WayPoint Routes
+
     
     Route::get('/reports',function(){
         return view('reports.index');
     })->name('reports');
+
+
+Route::get('/drivers',[DriversController::class,"index"])->name('drivers.index');
+
+Route::get('/drivers/create', [DriversController::class, 'create'])->name('drivers.create');
+Route::post('/drivers', [DriversController::class, 'store'])->name('drivers.store');
+
+Route::prefix('/drivers')->group(function(){
+    Route::get('/edit/{id}',[DriversController::class,"edit"])->name('drivers.edit');
+    Route::put('/update/{id}', [DriversController::class, "update"])->name('drivers.update');
 });
 
+Route::prefix('/drivers')->group(function(){
+    Route::get('/show/{id}',[DriversController::class,"show"])->name('drivers.show');
+});
+
+Route::delete('/drivers/{id}', [DriversController::class, 'destroy'])->name('driver.delete');
+
+
+
+// ------------ Parents Routes 
+Route::get('/parents',[ParentsController::class,"index"])->name('parents.index');
+
+Route::get('/parents/create', [ParentsController::class, 'create'])->name('parents.create');
+Route::post('/parents', [ParentsController::class, 'store'])->name('parents.store');
+
+Route::prefix('/parents')->group(function(){
+    Route::get('/edit/{id}',[ParentsController::class,"edit"])->name('parents.edit');
+    Route::put('/update/{id}', [ParentsController::class, "update"])->name('parents.update');
+    Route::get('/show/{id}',[ParentsController::class,"show"])->name('parents.show');
+    Route::delete('/{id}', [ParentsController::class, 'destroy'])->name('parents.delete');
+});
+});

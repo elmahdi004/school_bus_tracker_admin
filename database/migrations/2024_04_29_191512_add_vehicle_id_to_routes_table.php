@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('drivers', function (Blueprint $table) {
-            $table->foreignId('bus_id')->default(10)->constrained('vehicles','id')->onDelete('cascade');
+        Schema::table('routes', function (Blueprint $table) {
+            $table->foreignId('vehicle_id')->constrained('vehicles','id')->onDelete('cascade');
         });
     }
 
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('drivers', function (Blueprint $table) {
+        Schema::table('routes', function (Blueprint $table) {
             //
         });
     }

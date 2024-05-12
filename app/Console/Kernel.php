@@ -10,7 +10,6 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\ReminderNotification;
 
-
 class Kernel extends ConsoleKernel
 {
     /**
