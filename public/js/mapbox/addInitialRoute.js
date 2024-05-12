@@ -1,7 +1,9 @@
 // let routes = document.getElementById('myModal').getAttribute('data-value');
 // console.log(JSON.parse(routes));
 
-const API = 'http://127.0.0.1:8000/api';
+
+const API = 'http://192.168.57.232:8000/api';
+
 $('#myModal').on('shown.bs.modal', function () {
     map.resize(); // Trigger map resize event
 });
@@ -87,7 +89,11 @@ document.getElementById('add').onclick = ()=>{
         })
         .then(function (response) {
             window.location.href = '/routes'
+
+        }).catch(error=>console.log(error));
+
         })
+
     }
 
 }

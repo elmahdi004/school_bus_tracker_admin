@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id('driver_id');
-            $table->string('password');
             $table->string('username',100);
             $table->string('driver_licence_nbr',100);
             // $table->foreignId('bus_id')->constrained()->cascadeOnDelete();

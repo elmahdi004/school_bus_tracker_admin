@@ -92,4 +92,10 @@ class RouteController extends Controller
         Route::findOrFail($id)->delete();
         return redirect()->route('routes.index');
     }
+
+
+    public function getRoutes($vehilceId){
+        return response(Vehicle::find($vehilceId)->routes()->get(),200);
+    }
+
 }

@@ -15,7 +15,13 @@ class Drivers extends Model
         'role',
         'driver_licence_nbr',
         'bus_id',
+
+        'phone_number',
+        'email',
+        'address'
+
         'phone_number'
+
     ];
 
      public function bus()

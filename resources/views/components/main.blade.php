@@ -119,7 +119,7 @@
                     </li>
                     <li class="{{$id == "4" ? 'active' : ''}}">
                         <div>
-                            <a href="{{route('drivers')}}">
+                            <a href="{{route('drivers.index')}}">
                                 <div class="icon">
                                     <i class="fa-solid fa-users"></i>
                                 </div>
@@ -129,7 +129,7 @@
                     </li>
                     <li class="{{$id == "5" ? 'active' : ''}}">
                         <div>
-                            <a href="{{route('parents')}}">
+                            <a href="{{route('parents.index')}}">
                                 <i class="fa-solid fa-person-breastfeeding"></i>
                                 <h4>Parents</h4>
                             </a>

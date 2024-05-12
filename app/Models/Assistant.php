@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assistant extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Assistant extends Authenticatable
+
 {
     use HasFactory;
     protected $guarded = [];
