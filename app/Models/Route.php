@@ -12,4 +12,10 @@ class Route extends Model
     public function vehicle(){
         return $this->belongsTo(Vehicle::class,'vehicle_id');
     }
+    public function waypoints(){
+        return $this->hasMany(WayPoint::class,'route_id');
+    }
+    public function vols(){
+        return $this->hasMany(Vol::class,'route_id');
+    }
 }

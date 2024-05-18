@@ -59,6 +59,7 @@ const open = ref(false);
 const students = ref([]);
 const props = defineProps(['item','index']);
 const loading = ref(false);
+const API = "http://127.0.0.1:8000/api"
 
 const emit = defineEmits(['call-modal']);
 onMounted(()=>{
@@ -69,14 +70,14 @@ const toggleOpen = ()=>{
 }
 const getStudents = async ()=>{
     loading.value = true;
-    const {data} = await axios.get(`http://127.0.0.1:8000/api/waypoints/${props.item.id}/students`);
+    const {data} = await axios.get(`${API}/waypoints/${props.item.id}/students`);
     loading.value = false;
     if(data.length > 0){
         students.value = data.map((ele)=>ele);
     }
 };
 const removeStudentWaypoint = (student)=>{
-        axios.get(`http://127.0.0.1:8000/api/waypoints/student/${student}`)
+        axios.get(`${API}/waypoints/student/${student}`)
         .then(()=>{
             students.value = [];
             getStudents();

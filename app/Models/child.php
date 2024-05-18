@@ -10,9 +10,11 @@ class child extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function Parents() : BelongsTo
+    protected $primaryKey = 'child_id';
+
+    public function parent() : BelongsTo
     {
-        return $this->BelongsTo(Parents::class);
+        return $this->belongsTo(Parents::class,'parent_id','parent_id');
     }
     public function waypoint(){
         return $this->belongsTo(WayPoint::class,'waypoint_id');

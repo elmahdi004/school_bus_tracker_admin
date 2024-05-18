@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Assistant;
+use App\Models\child;
+use App\Models\WayPoint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Route;
 
 class AssistantController extends Controller
 {
@@ -92,5 +95,11 @@ class AssistantController extends Controller
         $assistants = Assistant::all();
         return view('assistants.index',['assistants'=>$assistants]);
 
+    }
+    public function getChildAssistant($id){
+        $child = child::findOrFail($id);
+        $waypoint = WayPoint::findOrFail($child->child_id);
+        $vehicle = Route::find($waypoint->route_id)->vehicle()->first();
+        return $vehicle->assistant()->first();
     }
 }

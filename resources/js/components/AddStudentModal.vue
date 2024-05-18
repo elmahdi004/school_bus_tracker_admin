@@ -44,6 +44,9 @@ const students = ref([]);
 const selectedStudents = ref([]);
 const props = defineProps(['waypoint']);
 
+const API = "http://127.0.0.1:8000/api"
+
+
 const emit = defineEmits(['call-students']);
 
 onMounted(async()=>{
@@ -58,7 +61,7 @@ const initializeDataTable = () => {
   });
 }
 const getStudents = async ()=>{
-   const { data } = await axios.get('http://127.0.0.1:8000/api/route/students')
+   const { data } = await axios.get(`${API}/route/students`)
     if(data.length > 0){
         students.value = [];
         students.value = data.map((ele)=>ele);
@@ -67,7 +70,7 @@ const getStudents = async ()=>{
     }
 }
 const addStudentsToRoute =async ()=>{
-    await axios.post('http://127.0.0.1:8000/api/waypoint/students/add',{students:selectedStudents.value,waypoint_id:props.waypoint})
+    await axios.post(`${API}/waypoint/students/add`,{students:selectedStudents.value,waypoint_id:props.waypoint})
     selectedStudents.value = [];
     await getStudents();
     // initializeDataTable()

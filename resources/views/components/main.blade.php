@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/datatable.css')}}">
@@ -49,7 +50,8 @@
                     <h6>Empty</h6>
                 </div>
                 @else
-                @foreach (Auth::guard('administrations')->user()->unreadNotifications as $notification)    
+                @foreach (Auth::guard('administrations')->user()->unreadNotifications as $notification)
+                @if (isset($notification->data['vehicle_id']))
                 <div class="item">
                     <a href="{{route('vehicles.detailsWithNotification',['id'=>$notification->data['vehicle_id'],$notification])}}">
                         <div class="item-section">
@@ -70,6 +72,30 @@
                         </div>
                     </a>
                 </div>
+                @else
+                <div class="item">
+                    <a href="{{route('waypoint.index',['id'=>$notification->data['route_id']])}}">
+                        <div class="item-section">
+                            <div class="one">
+                                <div class="alert">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                </div>
+                                <div class="details">
+                                    <h3>{{Str::limit($notification->data['message'],30)}}</h3>
+                                    <p style="font-size: 14px;color:black;margin-left:12px;">{{Str::limit($notification->data['body'],30)}}</p>
+                                    <h6>{{{$notification->created_at->diffForHumans()}}}</h6>
+                                </div>
+                            </div>
+                            <div class="two">
+                                <div class="arrow">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endif    
+                
                 @endforeach
                 @endif
             </div>

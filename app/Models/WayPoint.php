@@ -13,4 +13,7 @@ class WayPoint extends Model
     public function students(){
         return $this->hasMany(child::class,'waypoint_id');
     }
+    public function route(){
+        return $this->belongsTo(Route::class,'route_id');
+    }
 }

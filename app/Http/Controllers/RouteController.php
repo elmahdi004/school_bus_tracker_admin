@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\child;
 use App\Models\Route;
 use Illuminate\Http\Request;
 use App\Models\Route as ModelsRoute;
@@ -95,5 +96,15 @@ class RouteController extends Controller
 
     public function getRoutes($vehilceId){
         return response(Vehicle::find($vehilceId)->routes()->get(),200);
+    }
+    public function getRouteChildren($id){
+        $waypoints =  Route::find($id)->waypoints()->get();
+        $data = collect(); 
+            foreach ($waypoints as $waypoint ) {
+            $children = child::where('waypoint_id',$waypoint->id)->get();
+            $data = $data->merge($children);
+        }
+        return response($data->all(),200);
+        // return child::where('waypoint_id',$waypoints[0]->id)->get(); ;
     }
 }

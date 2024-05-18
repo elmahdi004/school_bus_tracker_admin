@@ -11,7 +11,7 @@ class Vehicle extends Model
     use HasFactory;
     protected $fillable = ['name','registration plate','model','number of seats','status','position_id','assistant_id','driver_id'];
     public function location(){
-        return $this->belongsTo(Location::class);
+        return $this->belongsTo(Location::class,'position_id');
     }
     public function busMaintenances(){
         return $this->hasMany(BusMaintenance::class);

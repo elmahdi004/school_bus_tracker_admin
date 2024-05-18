@@ -13,6 +13,7 @@ use App\Models\Location;
 use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 use App\Models\MaintenanceType;
+use App\Models\Parents;
 use App\Models\Route;
 use SebastianBergmann\CodeCoverage\Driver\Driver;
 
@@ -32,8 +33,9 @@ class DatabaseSeeder extends Seeder
         // Administration::factory(10)->create();
         //    Drivers::factory(50)->create();
         // Route::factory(20)->create();
-        // child::factory(100)->create();
-        Drivers::factory(100)->create();
+        // Parents::factory(50)->create();
+        child::factory(50)->create();
+        // Drivers::factory(100)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
