@@ -11,7 +11,7 @@
                         <img src="{{asset('css/images/icons8-route.svg')}}" alt="" srcset="">
                     </div>
                     <div class="details">
-                            <h4>200</h4> 
+                            <h4>{{$routesCount}}</h4> 
                         <p>Total Routes</p>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                         <img src="{{asset('css/images/icons8-assistant.svg')}}" alt="" srcset="">
                     </div>
                     <div class="details">
-                        <h4>200</h4>
+                        <h4>{{$assistantsCount}}</h4>
                         <p>Total Assistants</p>
                     </div>
                 </div>

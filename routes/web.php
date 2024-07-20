@@ -18,6 +18,10 @@ use App\Models\Parents;
 use Illuminate\Http\Request;
 use App\Http\Controllers\DriversController;
 use App\Http\Controllers\ParentsController;
+use App\Models\Incident;
+use App\Models\Route as ModelsRoute;
+use App\Http\Controllers\StudentController;
+use App\Models\Assistant;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,16 +47,26 @@ Route::middleware(AuthCheck::class)->group(function(){
     Route::get('/dashboard', function (Request $request) {
         $studentCount = child::count();
         $driversCount = Drivers::count();
-        $parentsCount = Parents::count();
+        $routesCount = ModelsRoute::count();
+        $assistantsCount = Assistant::count();
         return view('welcome', [
             'studentCount' => $studentCount,
             'driversCount'=> $driversCount,
-            'parentsCount' => $parentsCount
+            'routesCount'=>$routesCount,
+            'assistantsCount'=>$assistantsCount
         ]); 
     })->name('dashboard');
-    Route::get('/students',function(){
-        return view('students.index');
-    })->name('students');
+//student routes
+
+Route::group(['prefix' => 'students'], function () {
+    Route::get('/', [StudentController::class, 'index'])->name('students.index');
+    Route::get('/create', [StudentController::class, 'create'])->name('students.create');
+    Route::post('/', [StudentController::class, 'store'])->name('students.store');
+    Route::get('/{id}', [StudentController::class, 'show'])->name('students.show');
+    Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('students.edit');
+    Route::put('/{id}', [StudentController::class, 'update'])->name('students.update');
+    Route::get('/{id}/delete', [StudentController::class, 'destroy'])->name('students.destroy');
+});
     
     // Route::get('/drivers',function(){
     //     return view('drivers.index');
@@ -89,7 +103,8 @@ Route::middleware(AuthCheck::class)->group(function(){
     
     
     Route::get('/incidents',function(){
-        return view('incidents.index');
+        $routes = ModelsRoute::with('incidents.assistant')->get();
+        return view('incidents.index',['routes'=>$routes]);
     })->name('incidents');
     
     // Routes

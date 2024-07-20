@@ -23,19 +23,20 @@ class VolController extends Controller
         $route = Route::find($id);
         $waypoints = $route->waypoints()->get();
         $parents = [];
-        $children = [];
+        $childrenList = [];
         foreach ($waypoints as $waypoint) {
             $children = $waypoint->students()->get();
             foreach ($children as $child) {
                 $parent = Parents::where('parent_id',$child->parent_id)->first();
                 $parent->id = $parent->parent_id;
                 $parents[] = $parent;
+                $childrenList[] = $child;
             }
         }
         $vol = $route->vols()->latest()->first();
         if($vol){
             if($vol->end_date == null){
-                foreach ($children as $child) {
+                foreach ($childrenList as $child) {
                     $child->update([
                         'status'=>'hors du bus'
                     ]);
@@ -50,7 +51,7 @@ class VolController extends Controller
                     'route_id'=>$route->id,
                     'created_at'=>Carbon::now()->setTimezone('+1'),
                 ]);
-                foreach ($children as $child) {
+                foreach ($childrenList as $child) {
                     $child->update([
                         'status'=>'en bus'
                     ]);
@@ -63,7 +64,7 @@ class VolController extends Controller
                 'route_id'=>$route->id,
                 'created_at'=>Carbon::now()->setTimezone('+1'),
             ]);
-            foreach ($children as $child) {
+            foreach ($childrenList as $child) {
                 $child->update([
                     'status'=>'en bus'
                 ]);
@@ -77,6 +78,12 @@ class VolController extends Controller
         $child = child::where('child_id',$child_id)->first();
         $waypoint = WayPoint::find($child->waypoint_id);
         $route = Route::find($waypoint->route_id);
+        $vol = $route->vols()->latest()->first();
+        return response($vol,200);
+    }
+
+    public function getStatusOfLastVol($route_id){
+        $route = Route::find($route_id);
         $vol = $route->vols()->latest()->first();
         return response($vol,200);
     }

@@ -18,4 +18,7 @@ class Route extends Model
     public function vols(){
         return $this->hasMany(Vol::class,'route_id');
     }
+    public function incidents(){
+        return $this->hasMany(Incident::class,'route_id');
+    }
 }

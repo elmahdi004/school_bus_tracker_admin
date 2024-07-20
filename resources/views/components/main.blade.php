@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+   <link rel="icon" type="image/x-icon" href="raQib-no-bg.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/datatable.css')}}">
@@ -104,8 +105,8 @@
     <div class="main row">
         <div class="dashboard col-3" id="dashboard">
             <div class="logo">
-                <div>
-                    LOGO
+                <div style="width: 30px">
+                    <img src="{{asset('raQib-logo.png')}}" alt="" srcset="" style="max-width: 150px;">
                 </div>
                 <button id="btn-menu">
                     <i class="fa-solid fa-bars"></i>
@@ -135,7 +136,7 @@
                     </li>
                     <li class="{{$id == "3" ? 'active' : ''}}">
                         <div>
-                            <a href="{{route('students')}}">
+                            <a href="{{route('students.index')}}">
                                 <div class="icon">
                                     <i class="fa-solid fa-user"></i>
                                 </div>
@@ -185,14 +186,14 @@
                             </a>
                         </div>
                     </li>
-                    <li class="{{$id == "9" ? 'active' : ''}}">
+                    {{-- <li class="{{$id == "9" ? 'active' : ''}}">
                         <div>
                             <a href="{{route('reports')}}">
                                 <i class="fa-solid fa-calendar-minus"></i>
                                 <h4>Reports</h4>
                             </a>
                         </div>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>

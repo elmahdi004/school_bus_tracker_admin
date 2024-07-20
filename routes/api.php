@@ -58,6 +58,7 @@ Route::post('/vehicle/{id}/location',[LocationController::class,'updateMyLocatio
 Route::get('/parent/{id}/child/last-vol',[VolController::class,'getLastVol']);
 
 Route::get('/parent/{id}/child/last-vol/child-status',[VolController::class,'getStatusOfMyChild']);
+Route::get('/route/{id}/last-vol/status',[VolController::class,'getStatusOfLastVol']);
 Route::get('/child/{id}/get-my-child-location',[LocationController::class,'getMyChildLocation']);
 Route::get('/parent/{id}/get-my-notifications',[ParentsController::class,'getMyNotifications']);
 

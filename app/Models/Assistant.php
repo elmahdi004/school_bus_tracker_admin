@@ -13,4 +13,7 @@ class Assistant extends Authenticatable
     public function vehicle(){
         return $this->hasOne(Vehicle::class,'assistant_id');
     }
+    public function incidents(){
+        return $this->hasMany(Incident::class,'assistant_id');
+    }
 }
