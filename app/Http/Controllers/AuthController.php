@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Assistant;
 use App\Models\Parents;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,6 +21,7 @@ class AuthController extends Controller
         Auth::guard('administrations')->logout();
         return redirect()->route('login');
     }
+
     public function loginMobile(Request $request){
         $credentials = $request->only(['email','password']);
         if(Auth::guard('parents')->attempt($credentials)){
@@ -39,4 +41,5 @@ class AuthController extends Controller
     public function logoutAsAssistant(){
         Auth::guard('assistant')->logout();
     }
+
 }

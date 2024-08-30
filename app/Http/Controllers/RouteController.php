@@ -94,6 +94,7 @@ class RouteController extends Controller
         return redirect()->route('routes.index');
     }
 
+
     public function getRoutes($vehilceId){
         return response(Vehicle::find($vehilceId)->routes()->get(),200);
     }
@@ -107,4 +108,5 @@ class RouteController extends Controller
         return response($data->all(),200);
         // return child::where('waypoint_id',$waypoints[0]->id)->get(); ;
     }
+
 }

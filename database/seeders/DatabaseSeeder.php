@@ -19,11 +19,8 @@ use SebastianBergmann\CodeCoverage\Driver\Driver;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
-    {
+//     public function run(): void
+//     {
         // \App\Models\User::factory(10)->create();
         // Location::factory(50)->create();
         // MaintenanceType::factory(5)->create();
@@ -34,8 +31,14 @@ class DatabaseSeeder extends Seeder
         //    Drivers::factory(50)->create();
         // Route::factory(20)->create();
         // Parents::factory(50)->create();
-        child::factory(50)->create();
+        // child::factory(50)->create();
         // Drivers::factory(100)->create();
+
+        // child::factory(100)->create();
+        // Drivers::factory(100)->create();
+
+        // child::factory(100)->create();
+
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
@@ -44,5 +47,5 @@ class DatabaseSeeder extends Seeder
         // $this->call(DriverSeeder::class);
         // $this->call(ParentSeeder::class);
         // $this->call(ChildSeeder::class);
-    }
+//     }
 }

@@ -17,7 +17,9 @@ class Drivers extends Model
         'bus_id',
         'phone_number',
         'email',
-        'address'
+        'address',
+        'phone_number'
+
     ];
 
      public function bus()

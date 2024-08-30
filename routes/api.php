@@ -28,7 +28,9 @@ use App\Models\Vehicle;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 // MapBox API 
+
 Route::apiResource('routes',RouteController::class);
 Route::post('routes/store',[RouteController::class,'store']);
 Route::apiResource('waypoints',WayPointController::class);
@@ -37,6 +39,7 @@ Route::get('/waypoints/{id}/students',[WayPointController::class,'getWaypointStu
 Route::get('/waypoints/student/{id}',[WayPointController::class,'removeStudentWaypoint']);
 Route::get('/route/students',[WayPointController::class,'getStudents']);
 Route::post('/waypoint/students/add',[WayPointController::class,'addStudentToWaypoint']);
+
 
 
 
@@ -65,5 +68,6 @@ Route::get('/parent/{id}/get-my-notifications',[ParentsController::class,'getMyN
 Route::post('/assistant/{id}/route/{id_2}/create-incident',[IncidentController::class,'mobileCreateIncident']);
 
 Route::get('/child/{id}/my-child-assistant',[AssistantController::class,'getChildAssistant']);
+
 
 
