@@ -17,8 +17,11 @@
                 <img src="{{asset('css/auth/images/bus-img.jpg')}}" alt="school bus" srcset="">
             </div>
             <div class="login-form">
+                {{-- <div class="d-flex justify-content-center">
+                    <img src="{{asset('raQib-logo.png')}}" alt="logo" srcset="" style="width: 200px;">
+                </div> --}}
                 <div>
-                    <div class="details">
+                    <div class="details mt-5">
                         <h3>Login to your account</h3>
                         <p>Welcome back! login with your data that you entered during registration</p>
                     </div>

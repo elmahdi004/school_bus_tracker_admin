@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\parentRessource;
+use App\Models\child;
 use App\Models\Parents;
 use Illuminate\Http\Request;
 
@@ -102,5 +103,15 @@ class ParentsController extends Controller
         $parent = Parents::where('parent_id', $id)->delete();
         $parents = Parents::all();
         return view('parents.index',['parents'=>$parents]);
+    }
+
+    public function getParentChildren($id){
+            $children = child::where('parent_id',$id)->get();
+            return $children;
+            return response($children,200) ;
+    }
+    public function getMyNotifications($id){
+        $parent = Parents::find($id);
+        return response($parent->unreadNotifications()->get(),200);
     }
 }

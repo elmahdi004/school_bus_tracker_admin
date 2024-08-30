@@ -40,6 +40,7 @@ const loading = ref(false);
 const modal = ref(false);
 const props = defineProps(['route']);
 const waypoint = ref(null);
+const API = "http://127.0.0.1:8000/api"
 var map;
 const callModalHandle = (id)=>{
   waypoint.value = id;
@@ -87,7 +88,7 @@ async function addMarker(e) {
           'latitude':e.lngLat.lat,
           'longitude':e.lngLat.lng
     }
-    let {data} = await axios.post('http://127.0.0.1:8000/api/waypoints',point);
+    let {data} = await axios.post(`${API}/waypoints`,point);
     listWaypoints();
     // items.value.push(data);
     // calculateRoute();
@@ -170,7 +171,7 @@ map.on('click', addMarker);
 // }
 })
 const listWaypoints = async()=>{
-  const points = await axios.get(`http://127.0.0.1:8000/api/route/${props.route}/waypoints`);
+  const points = await axios.get(`${API}/route/${props.route}/waypoints`);
 if(points.data.length > 0){
   items.value = [];
   loading.value = false;
@@ -199,7 +200,7 @@ loading.value = false;
 const callStudentHandle = async()=>{
   loading.value = true;
   console.log('i do not got them')
-  let points = await axios.get(`http://127.0.0.1:8000/api/route/${props.route}/waypoints`);
+  let points = await axios.get(`${API}/route/${props.route}/waypoints`);
   console.log('i got them')
 if(points.data.length > 0){
   items.value = [];

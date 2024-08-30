@@ -2,14 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\child;
 use App\Models\Location;
+use App\Models\Route;
+use App\Models\Vehicle;
+use App\Models\WayPoint;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
+    public function updateMyLocation(Request $request,$id){
+        $postion =  Vehicle::find($id)->location()->first();
+        Location::find($postion->id)->update([
+            'latitude'=>$request->latitude,
+            'longitude'=>$request->longitude
+        ]);
+        return response('',200);
+    }
     /**
      * Display a listing of the resource.
      */
+    public function getMyChildLocation($child_id){
+        $child = child::where('child_id',$child_id)->first();
+        $waypoint = WayPoint::find($child->waypoint_id);
+        $vehicle = Route::find($waypoint->route_id)->vehicle()->first();
+        $location = $vehicle->location()->first();
+        return response(['location'=>$location,'route'=>Route::find($waypoint->route_id)],200);
+
+    }
     public function index()
     {
         //
